@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#!/usr/bin/RScript\n\nif(FALSE){\n  \"Institución Universitaria Antonio José Camacho\n  Diplomado de Data Sciente\n  Modulo: Estadística\n  Profesor: Luis Ramirez\n  \n  Análisis de regresión multiple sobre el dataset de Great Plains Roofing and Siding Company Inc.\n  Por:\n    Luis Eduardo Ferro Diez\n    Jessica Tenorio\n  Junio 18 de 2017\n  \n  Este script contiene todos los comando necesarios para efectuar el análisis de regresión lineal\n  multiple sobre el dataset Great Plains Roofing and Siding Company Inc. para responder incognitas\n  sobre análisis de mercado y toma de decisiones.\"\n}\n\nlibrary(lmtest)\nlibrary(car)\n\n# Cargamos el dataset de las ventas\ndataset <- read.table('./dataset/sales-dataset.csv', header = TRUE)\n\n# Realizamos grafico de dispersion multivariante\npairs(dataset, panel = panel.smooth)\n\n# Realizamos un analisis de la matriz de correlacion con el metodo de pearson\ncor(dataset, use = \"everything\", method = \"pearson\")\n\n# Se establece un modelo de regresion multiple\ngprsd_rm <- lm(ventas ~ publicidad + n.cuentas + n.competidores + potencial.mercado, data = dataset)\nsummary(gprsd_rm)\n\n# El anterior modelo muestra que la publicidad y el potencial de mercado tienen un aporte cercano a cero\n# al modelo, por lo que se decide descartarlos y se genera un nuevo modelo\ngprsd_rm <- lm(ventas ~ n.cuentas + n.competidores, data = dataset)\nsummary(gprsd_rm)\n\n# Respresentacion grafica del modelo\nplot(gprsd_rm, which = 1) # Varianza de los errores\nplot(gprsd_rm, which = 2) # Normalidad de los errores\n\n# Obtencion de los residuos del modelo y los valores ajustados\ndataset$fitted.model <- fitted(gprsd_rm)\ndataset$residuals.model <- residuals(gprsd_rm)\ndataset$rstudent.model <- rstudent(gprsd_rm)\n\n# Test de normalidad\nks.test(dataset$rstudent.model, \"pnorm\")\nhist(dataset$rstudent.model, xlab = \"Residuos\", main = \"Histograma residuos\", col = \"cornflowerblue\")\n\n# Homogeneidad de varianzas\nbptest(gprsd_rm, studentize = FALSE, data = dataset)\nanova(gprsd_rm)\n\n# Prueba de correlacion de los errores por metodo de Durbin-Watson\ndwtest(gprsd_rm, alternative = \"two.sided\", data = dataset)\n\n# Checkeo de valores atipicos\noutlierTest(gprsd_rm)\n\n# Prueba de colinealidad\nvif(lm(ventas ~ n.cuentas + n.competidores, data = dataset))\n\n# ---------------------------------\n# Uso del Modelo\n# ---------------------------------\nn.cuentas0 <- floor(seq(min(dataset$n.cuentas), max(dataset$n.cuentas), length = 10))\nn.competidores0 <- floor(seq(min(dataset$n.competidores), max(dataset$n.competidores), length = 10))\nmean.competidores <- floor(mean(dataset$n.competidores))\nmean.cuentas <- ceiling(mean(dataset$n.cuentas))\n\n# Estimación para las ventas según el aumento de número de cuentas con un número de competidores constante\nprediction <- predict(gprsd_rm, data.frame(n.cuentas = n.cuentas0, n.competidores = mean.competidores), interval = \"confidence\", se.fit = TRUE, data = dataset)\nhead(prediction)\n# Gráficamente\nmatplot(n.cuentas0, prediction$fit, type = \"l\", xlab = \"Numero de Cuentas\", ylab = \"Ventas\")\n\n# Ahora la estimación de las ventas según el aumento de número de competidores con un número de cuentas constante\nprediction2 <- predict(gprsd_rm, data.frame(n.cuentas = mean.cuentas, n.competidores = n.competidores0), interval = \"confidence\", se.fit = TRUE, data = dataset)\nhead(prediction2)\n# Gráficamente\nmatplot(n.competidores0, prediction2$fit, type = \"l\", xlab = \"Numero de Competidores\", ylab = \"Ventas\")\n",
+    "created" : 1497729356774.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "603516731",
+    "id" : "D6CDF067",
+    "lastKnownWriteTime" : 1497798029,
+    "last_content_update" : 1497798029150,
+    "path" : "~/Data Science/Statistics/R-lab/workshop4/multiple-regression/multiple-regression.r",
+    "project_path" : "multiple-regression.r",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#!/usr/bin/RScript\n\n# Read the dataset with built-in functions\ndataset <- read.table('./dataset/kids.csv', header = TRUE)\n\n# scatterplot chart\nplot(dataset$estatura, dataset$peso)\n\n# calculate the correlation matrix\n# create the data frame\ncorrelation <- data.frame(dataset$estatura, dataset$peso)\n# then calculate the matrix\ncor(correlation, use = \"everything\", method = \"pearson\")\n# then test over the correlation\ncor.test(dataset$estatura, dataset$peso, method = \"pearson\")\n\n# Create the simple regression model\nmodel <- lm(peso ~ estatura, data = dataset)\nmodel\n\n# graphically represent the adjustment of the model\nplot(dataset$estatura, dataset$peso, xlab = \"Estatura\", ylab = \"Peso\")\nabline(model) # adds the obtained line into the current plot\n\n# summary of the model\nsummary(model)\n\n# confidence intervals for the quotients\nconfint(model, level = 0.95)\n\n# variance analysis or linear test\nanova(model)\n\n# quotient of determination R^2\ncor(correlation, use = \"everything\")^2\n\n# Model diagnosis, test the suppositions\n\ndataset$fitted.model <- fitted(model) # Adjusted values for the model\ndatasetresiduals.model <- residuals(model) # Get the residuals of the model\ndataset$rstudent.model <- rstudent(model) # Studied residuals\n\n# test of normallity of the errors\nshapiro.test(dataset$rstudent.model)\nqqnorm(dataset$rstudent.model, main = \"Normal(0,1)\") # graph for the normallity test\n\n# test of heteroscedasticity of variances\nlibrary(lmtest)\nbptest(model)\n\n# test of independence of the errors\nplot(datasetresiduals.model, ylab = \"Residuales\", xlab = \"Indices\")\nabline(h = cor(dataset$estatura, dataset$peso))\ndwtest(peso ~ estatura, alternative = \"two.sided\", data = dataset)\n\n# check existence of atypical data\nlibrary(car)\noutlierTest(model, cutoff = 0.05, n.max = 10, order = TRUE)\n# it detects an atypical data, row #2\n\n\n# Model Usage\n# prediction of the mean value of Y with the confidence bands\nx0 <- seq(min(dataset$estatura), max(dataset$estatura), length = 10)\nic <- predict(model, data.frame(estatura = x0), interval = \"confidence\", se.fit = TRUE, data = dataset)\nhead(ic)\n# plot the confidence bands?\nmatplot(x0, ic$fit, type = \"l\", xlab = \"estatura\", ylab = \"peso\")\n\n\n# predict a new value\nx1 <- seq(124, 133, length = 10)\nprediction <- predict(model, data.frame(estatura = x1), interval = \"prediction\", se.fit = TRUE, data = dataset)\nhead(prediction)\nmatplot(x1, prediction$fit, type = \"l\", xlab = \"estatura\", ylab = \"peso\")\n",
+    "created" : 1497574397858.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3306065864",
+    "id" : "E9AE2520",
+    "lastKnownWriteTime" : 1497578138,
+    "last_content_update" : 1497578138445,
+    "path" : "~/Data Science/Statistics/R-lab/kids/kids.r",
+    "project_path" : "kids.r",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

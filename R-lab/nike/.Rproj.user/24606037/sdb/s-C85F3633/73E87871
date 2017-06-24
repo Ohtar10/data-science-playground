@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1497199179172.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "73E87871",
+    "lastKnownWriteTime" : 0,
+    "last_content_update" : 1497199179172,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "9179A4E8",
+        "caption" : "Nike_Dataset",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=Nike_Dataset&cache_key=9179A4E8",
+        "displayedObservations" : 45,
+        "environment" : "",
+        "object" : "Nike_Dataset",
+        "preview" : 0,
+        "totalObservations" : 45,
+        "variables" : 7
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

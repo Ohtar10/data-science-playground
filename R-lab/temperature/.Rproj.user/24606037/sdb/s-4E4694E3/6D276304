@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1497484658955.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "6D276304",
+    "lastKnownWriteTime" : 62224960,
+    "last_content_update" : 1497484658955,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "356E10BE",
+        "caption" : "Temperature",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=Temperature&cache_key=356E10BE",
+        "displayedObservations" : "25",
+        "environment" : "",
+        "object" : "Temperature",
+        "preview" : "0",
+        "totalObservations" : "25",
+        "variables" : "2"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
