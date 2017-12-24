@@ -1,0 +1,267 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n# Flink Taxi trips playground",
+      "user": "admin",
+      "dateUpdated": "Dec 5, 2017 9:06:12 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eFlink Taxi trips playground\u003c/h1\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1512507954281_588762955",
+      "id": "20171205-210554_601720411",
+      "dateCreated": "Dec 5, 2017 9:05:54 PM",
+      "dateStarted": "Dec 5, 2017 9:06:12 PM",
+      "dateFinished": "Dec 5, 2017 9:06:12 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%flink\nimport org.apache.flink.core.fs.FileSystem.WriteMode\n\ncase class GreenTrip(vendor: Long, pickup: (Double, Double), dropoff: (Double, Double), passengerCount: Int, distance: Double, fare: Double){}\n\nval dataset \u003d benv.readCsvFile[(Long, Double, Double, Double, Double, Int, Double, Double)](\"/zeppelin/datasets/minigreen.csv\", ignoreFirstLine \u003d true, fieldDelimiter \u003d \",\", lenient \u003d true, includedFields \u003d Array(0, 5, 6, 7, 8, 9, 10, 11))\n    .map(record \u003d\u003e {\n        GreenTrip(record._1, (record._2, record._3), (record._4, record._5), record._6, record._7, record._8)\n    })\n\ndataset.writeAsCsv(\"/zeppelin/output/trips.csv\", fieldDelimiter\u003d\";\", writeMode\u003dWriteMode.OVERWRITE)\nbenv.execute()",
+      "user": "admin",
+      "dateUpdated": "Dec 15, 2017 8:53:21 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.flink.core.fs.FileSystem.WriteMode\ndefined class GreenTrip\ndataset: org.apache.flink.api.scala.DataSet[GreenTrip] \u003d org.apache.flink.api.scala.DataSet@58a29a75\nres0: org.apache.flink.api.java.operators.DataSink[GreenTrip] \u003d DataSink \u0027\u003cunnamed\u003e\u0027 (CsvOutputFormat (path: /zeppelin/output/trips.csv, delimiter: ;))\nres1: org.apache.flink.api.common.JobExecutionResult \u003d org.apache.flink.api.common.JobExecutionResult@421f6d65\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1512507972371_-678245297",
+      "id": "20171205-210612_1173224643",
+      "dateCreated": "Dec 5, 2017 9:06:12 PM",
+      "dateStarted": "Dec 15, 2017 8:53:21 PM",
+      "dateFinished": "Dec 15, 2017 8:53:38 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n\nval result \u003d spark.read.option(\"sep\", \";\").csv(\"/zeppelin/output/trips.csv\")\nval result.createOrReplaceTempView(\"result\")\n",
+      "user": "admin",
+      "dateUpdated": "Dec 15, 2017 8:54:57 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "result: org.apache.spark.sql.DataFrame \u003d [_c0: string, _c1: string ... 4 more fields]\n\u003cconsole\u003e:3: error: \u0027\u003d\u0027 expected but \u0027;\u0027 found.\nprint(\"\")\n^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1512510853131_1563808016",
+      "id": "20171205-215413_1912131440",
+      "dateCreated": "Dec 5, 2017 9:54:13 PM",
+      "dateStarted": "Dec 15, 2017 8:54:57 PM",
+      "dateFinished": "Dec 15, 2017 8:58:16 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.sql\nselect * from result\n",
+      "user": "admin",
+      "dateUpdated": "Dec 15, 2017 8:38:54 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "_c0\t_c1\t_c2\t_c3\t_c4\t_c5\n2\t(-73.92864227294922,40.68061065673828)\t(-73.92427825927734,40.69804382324219)\t1\t1.46\t8.0\n2\t(-73.95267486572266,40.723175048828125)\t(-73.92391967773438,40.76137924194336)\t1\t3.56\t15.5\n2\t(-73.97161102294922,40.67610549926758)\t(-74.0131607055664,40.64607238769531)\t1\t3.79\t16.5\n2\t(-73.989501953125,40.669578552246094)\t(-74.00064849853516,40.68903350830078)\t1\t3.01\t13.5\n2\t(-73.96472930908203,40.68285369873047)\t(-73.94071960449219,40.66301345825195)\t1\t2.55\t12.0\n2\t(-73.89114379882812,40.746456146240234)\t(-73.86774444580078,40.74211120605469)\t1\t1.37\t7.0\n2\t(-73.89667510986328,40.74619674682617)\t(-73.88619232177734,40.745689392089844)\t1\t0.57\t5.0\n2\t(-73.95335388183594,40.803558349609375)\t(-73.94915008544922,40.79412078857422)\t1\t1.01\t7.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1513369819974_1528268540",
+      "id": "20171215-203019_982219847",
+      "dateCreated": "Dec 15, 2017 8:30:19 PM",
+      "dateStarted": "Dec 15, 2017 8:38:54 PM",
+      "dateFinished": "Dec 15, 2017 8:38:55 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%angular\n\n\u003clink rel\u003d\"stylesheet\" href\u003d\"https://unpkg.com/leaflet@1.2.0/dist/leaflet.css\" integrity\u003d\"sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ\u003d\u003d\" crossorigin\u003d\"\"/\u003e\n\u003cstyle\u003e\n    #mapid-leaflet { height: 400px; }\n\u003c/style\u003e\n\u003c!-- Make sure you put this AFTER Leaflet\u0027s CSS --\u003e\n\u003cscript src\u003d\"https://unpkg.com/leaflet@1.2.0/dist/leaflet.js\" integrity\u003d\"sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log\u003d\u003d\" crossorigin\u003d\"\"\u003e \u003c/script\u003e\n\u003cdiv id\u003d\"mapid-leaflet\"\u003e\u003c/div\u003e\n\u003cscript type\u003d\"text/javascript\"\u003e\n function initMap(){\n  var map \u003d L.map(\u0027mapid-leaflet\u0027).setView([39.75621, -104.99404], 3);\n  L.tileLayer(\"http://{s}.tile.osm.org/{z}/{x}/{y}.png\").addTo(map);\n }\n  \n if (window.L) {\n  initMap();\n } else {\n  console.log(\u0027Loading Leaflet library\u0027);\n  var sc \u003d document.createElement(\u0027script\u0027);\n  sc.type \u003d \u0027text/javascript\u0027;\n  sc.src \u003d \u0027https://unpkg.com/leaflet@1.2.0/dist/leaflet.js\u0027;\n  sc.onload \u003d initMap;\n  sc.onerror \u003d function(err) { alert(err); }\n  document.getElementsByTagName(\u0027head\u0027)[0].appendChild(sc);\n }\n\u003c/script\u003e",
+      "user": "admin",
+      "dateUpdated": "Dec 5, 2017 10:11:33 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala",
+        "tableHide": false,
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\u003clink rel\u003d\"stylesheet\" href\u003d\"https://unpkg.com/leaflet@1.2.0/dist/leaflet.css\" integrity\u003d\"sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ\u003d\u003d\" crossorigin\u003d\"\"/\u003e\n\u003cstyle\u003e\n    #mapid-leaflet { height: 400px; }\n\u003c/style\u003e\n\u003c!-- Make sure you put this AFTER Leaflet\u0027s CSS --\u003e\n\u003cscript src\u003d\"https://unpkg.com/leaflet@1.2.0/dist/leaflet.js\" integrity\u003d\"sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log\u003d\u003d\" crossorigin\u003d\"\"\u003e \u003c/script\u003e\n\u003cdiv id\u003d\"mapid-leaflet\"\u003e\u003c/div\u003e\n\u003cscript type\u003d\"text/javascript\"\u003e\n function initMap(){\n  var map \u003d L.map(\u0027mapid-leaflet\u0027).setView([39.75621, -104.99404], 3);\n  L.tileLayer(\"http://{s}.tile.osm.org/{z}/{x}/{y}.png\").addTo(map);\n }\n  \n if (window.L) {\n  initMap();\n } else {\n  console.log(\u0027Loading Leaflet library\u0027);\n  var sc \u003d document.createElement(\u0027script\u0027);\n  sc.type \u003d \u0027text/javascript\u0027;\n  sc.src \u003d \u0027https://unpkg.com/leaflet@1.2.0/dist/leaflet.js\u0027;\n  sc.onload \u003d initMap;\n  sc.onerror \u003d function(err) { alert(err); }\n  document.getElementsByTagName(\u0027head\u0027)[0].appendChild(sc);\n }\n\u003c/script\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1512511642997_-481786394",
+      "id": "20171205-220722_1504398790",
+      "dateCreated": "Dec 5, 2017 10:07:22 PM",
+      "dateStarted": "Dec 5, 2017 10:11:33 PM",
+      "dateFinished": "Dec 5, 2017 10:11:33 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%flink\nintp.definedTerms.foreach(println)\n",
+      "user": "admin",
+      "dateUpdated": "Dec 5, 2017 10:57:15 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cconsole\u003e:73: error: not found: value intp\n       intp.definedTerms.foreach(println)\n       ^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1512511781887_-204551003",
+      "id": "20171205-220941_490883425",
+      "dateCreated": "Dec 5, 2017 10:09:41 PM",
+      "dateStarted": "Dec 5, 2017 10:57:15 PM",
+      "dateFinished": "Dec 5, 2017 10:57:15 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n",
+      "user": "admin",
+      "dateUpdated": "Dec 5, 2017 10:34:50 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1512513290627_-205361016",
+      "id": "20171205-223450_1584560676",
+      "dateCreated": "Dec 5, 2017 10:34:50 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Flink/taxitrips",
+  "id": "2CZMX2Y96",
+  "angularObjects": {
+    "2CYTRGJ4C:shared_process": [],
+    "2CY4ANXKH:shared_process": [],
+    "2D1FAAA2W:shared_process": [],
+    "2D18CBQ4R:shared_process": [],
+    "2CYWNE1SK:shared_process": [],
+    "2CZ53PD9E:shared_process": [],
+    "2CXMSYMKE:shared_process": [],
+    "2CYXNMRRW:shared_process": [],
+    "2CYC381B1:shared_process": [],
+    "2CYUNTTZY:shared_process": [],
+    "2CYM4X6U4:shared_process": [],
+    "2CXFBX3H1::2CZMX2Y96": [],
+    "2CXY1FUQK:shared_process": [],
+    "2CY6ZF1J1:shared_process": [],
+    "2CX82UF88:shared_process": [],
+    "2CXNTVNX9:shared_process": [],
+    "2CZHUJN1A:shared_process": [],
+    "2CZSSYREP:shared_process": [],
+    "2CYABBU1U:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

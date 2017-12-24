@@ -1,0 +1,410 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md \n# Decision Trees\nFirst we\u0027ll load some fake data on past hires, Note how we use pandas to covner a csv file into a DataFrame",
+      "user": "admin",
+      "dateUpdated": "Dec 14, 2017 9:13:42 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eDecision Trees\u003c/h1\u003e\n\u003cp\u003eFirst we\u0026rsquo;ll load some fake data on past hires, Note how we use pandas to covner a csv file into a DataFrame\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1513285960315_1559083952",
+      "id": "20171214-211240_1188941815",
+      "dateCreated": "Dec 14, 2017 9:12:40 PM",
+      "dateStarted": "Dec 14, 2017 9:13:42 PM",
+      "dateFinished": "Dec 14, 2017 9:13:44 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nimport numpy as np\nimport pandas as pd\nfrom sklearn import tree\n\ninput_file \u003d \"/zeppelin/datasets/PastHires.csv\"\ndf \u003d pd.read_csv(input_file, header \u003d 0)\nz.show(df)",
+      "user": "admin",
+      "dateUpdated": "Dec 14, 2017 9:25:20 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Years Experience\tEmployed?\tPrevious employers\tLevel of Education\tTop-tier school\tInterned\tHired\n10\tY\t4\tBS\tN\tN\tY\n0\tN\t0\tBS\tY\tY\tY\n7\tN\t6\tBS\tN\tN\tN\n2\tY\t1\tMS\tY\tN\tY\n20\tN\t2\tPhD\tY\tN\tN\n0\tN\t0\tPhD\tY\tY\tY\n5\tY\t2\tMS\tN\tY\tY\n3\tN\t1\tBS\tN\tY\tY\n15\tY\t5\tBS\tN\tN\tY\n0\tN\t0\tBS\tN\tN\tN\n1\tN\t1\tPhD\tY\tN\tN\n4\tY\t1\tBS\tN\tY\tY\n0\tN\t0\tPhD\tY\tN\tY\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1513286022398_2009271337",
+      "id": "20171214-211342_189373596",
+      "dateCreated": "Dec 14, 2017 9:13:42 PM",
+      "dateStarted": "Dec 14, 2017 9:25:20 PM",
+      "dateFinished": "Dec 14, 2017 9:25:20 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nscikit-lean needs everythi to be numerical for decision trees to work, So we\u0027ll map Y,N and levels of education to some scale 0-2, in the real world, you\u0027d need to think about how to deal with unexpected or missing data! By using map(), we know we\u0027ll get NaN for unexpected values.",
+      "user": "admin",
+      "dateUpdated": "Dec 14, 2017 9:18:49 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003escikit-lean needs everythi to be numerical for decision trees to work, So we\u0026rsquo;ll map Y,N and levels of education to some scale 0-2, in the real world, you\u0026rsquo;d need to think about how to deal with unexpected or missing data! By using map(), we know we\u0026rsquo;ll get NaN for unexpected values.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1513286166916_-1371685814",
+      "id": "20171214-211606_770785515",
+      "dateCreated": "Dec 14, 2017 9:16:06 PM",
+      "dateStarted": "Dec 14, 2017 9:18:49 PM",
+      "dateFinished": "Dec 14, 2017 9:18:49 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nd \u003d {\u0027Y\u0027: 1, \u0027N\u0027: 0}\ndf[\u0027Hired\u0027] \u003d df[\u0027Hired\u0027].map(d)\ndf[\u0027Employed?\u0027] \u003d df[\u0027Employed?\u0027].map(d)\ndf[\u0027Top-tier school\u0027] \u003d df[\u0027Top-tier school\u0027].map(d)\ndf[\u0027Interned\u0027] \u003d df[\u0027Interned\u0027].map(d)\nd \u003d {\u0027BS\u0027: 0, \u0027MS\u0027: 1, \u0027PhD\u0027: 2}\ndf[\u0027Level of Education\u0027] \u003d df[\u0027Level of Education\u0027].map(d)\nz.show(df)",
+      "user": "admin",
+      "dateUpdated": "Dec 14, 2017 9:25:23 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Years Experience\tEmployed?\tPrevious employers\tLevel of Education\tTop-tier school\tInterned\tHired\n10\t1\t4\t0\t0\t0\t1\n0\t0\t0\t0\t1\t1\t1\n7\t0\t6\t0\t0\t0\t0\n2\t1\t1\t1\t1\t0\t1\n20\t0\t2\t2\t1\t0\t0\n0\t0\t0\t2\t1\t1\t1\n5\t1\t2\t1\t0\t1\t1\n3\t0\t1\t0\t0\t1\t1\n15\t1\t5\t0\t0\t0\t1\n0\t0\t0\t0\t0\t0\t0\n1\t0\t1\t2\t1\t0\t0\n4\t1\t1\t0\t0\t1\t1\n0\t0\t0\t2\t1\t0\t1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1513286328979_1159790094",
+      "id": "20171214-211848_1068532669",
+      "dateCreated": "Dec 14, 2017 9:18:48 PM",
+      "dateStarted": "Dec 14, 2017 9:25:23 PM",
+      "dateFinished": "Dec 14, 2017 9:25:23 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\nfeatures \u003d list(df.columns[:6])\nfeatures\n",
+      "user": "admin",
+      "dateUpdated": "Dec 14, 2017 9:27:35 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[\u0027Years Experience\u0027, \u0027Employed?\u0027, \u0027Previous employers\u0027, \u0027Level of Education\u0027, \u0027Top-tier school\u0027, \u0027Interned\u0027]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1513286577069_1955787951",
+      "id": "20171214-212257_305133284",
+      "dateCreated": "Dec 14, 2017 9:22:57 PM",
+      "dateStarted": "Dec 14, 2017 9:27:35 PM",
+      "dateFinished": "Dec 14, 2017 9:27:35 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\ny \u003d df[\u0027Hired\u0027]\nx \u003d df[features]\nclf \u003d tree.DecisionTreeClassifier()\nclf \u003d clf.fit(x, y)\n",
+      "user": "admin",
+      "dateUpdated": "Dec 14, 2017 9:34:38 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1513286808359_345535539",
+      "id": "20171214-212648_1190627776",
+      "dateCreated": "Dec 14, 2017 9:26:48 PM",
+      "dateStarted": "Dec 14, 2017 9:34:38 PM",
+      "dateFinished": "Dec 14, 2017 9:34:38 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n... and display it. Note you need to have pyplot2 installed for this to work.\n\nTo read this decision tree, each condition branches left for \"true\" and right for \"false\". When you end up at a value, the value array represents how many samples exists on each target value. so value \u003d [0.5.] mean there are 0 \"no hires\" and 5 \"hires\" by the time we get to that point. value \u003d [3.0.] means 3 no hires and 0 hires.",
+      "user": "admin",
+      "dateUpdated": "Dec 14, 2017 9:38:11 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e\u0026hellip; and display it. Note you need to have pyplot2 installed for this to work.\u003c/p\u003e\n\u003cp\u003eTo read this decision tree, each condition branches left for \u0026ldquo;true\u0026rdquo; and right for \u0026ldquo;false\u0026rdquo;. When you end up at a value, the value array represents how many samples exists on each target value. so value \u003d [0.5.] mean there are 0 \u0026ldquo;no hires\u0026rdquo; and 5 \u0026ldquo;hires\u0026rdquo; by the time we get to that point. value \u003d [3.0.] means 3 no hires and 0 hires.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1513287272902_912574984",
+      "id": "20171214-213432_33089574",
+      "dateCreated": "Dec 14, 2017 9:34:32 PM",
+      "dateStarted": "Dec 14, 2017 9:38:11 PM",
+      "dateFinished": "Dec 14, 2017 9:38:11 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\nfrom sklearn.externals.six import StringIO\nimport pydotplus\n\ndot_data \u003d StringIO()\ntree.export_graphviz(clf, out_file\u003ddot_data, feature_names\u003dfeatures)\ngraph \u003d pydotplus.graph_from_dot_data(dot_data.getvalue())\ngraph.write_png(\u0027/zeppelin/webapps/webapp/assets/images/notebooks_files/tree.png\u0027)\n",
+      "user": "admin",
+      "dateUpdated": "Dec 15, 2017 1:36:18 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "True\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1513287491804_1937651679",
+      "id": "20171214-213811_1369665465",
+      "dateCreated": "Dec 14, 2017 9:38:11 PM",
+      "dateStarted": "Dec 15, 2017 1:36:18 PM",
+      "dateFinished": "Dec 15, 2017 1:36:18 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\u003cimg src\u003d\"assets/images/notebooks_files/tree.png\"/\u003e",
+      "user": "admin",
+      "dateUpdated": "Dec 15, 2017 1:36:55 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cimg src\u003d\"assets/images/notebooks_files/tree.png\"/\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1513287633368_-1291778992",
+      "id": "20171214-214033_2036809570",
+      "dateCreated": "Dec 14, 2017 9:40:33 PM",
+      "dateStarted": "Dec 15, 2017 1:36:55 PM",
+      "dateFinished": "Dec 15, 2017 1:36:55 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\nfrom sklearn.ensemble import RandomForestClassifier\n\nclf \u003d RandomForestClassifier(n_estimators\u003d10)\nclf \u003d clf.fit(x, y)\n\n#predict employment of an employed 10-year veteran\nprint clf.predict([[10, 1, 4, 0, 0, 0]])\n#preduct employment of an unemployed 10-year veteran\nprint clf.predict([[10, 0, 4, 0, 0, 0]])",
+      "user": "admin",
+      "dateUpdated": "Dec 15, 2017 1:59:50 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[1]\n[1]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1513287675682_-1611243172",
+      "id": "20171214-214115_1079664793",
+      "dateCreated": "Dec 14, 2017 9:41:15 PM",
+      "dateStarted": "Dec 15, 2017 1:59:50 PM",
+      "dateFinished": "Dec 15, 2017 1:59:50 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n",
+      "user": "admin",
+      "dateUpdated": "Dec 15, 2017 1:14:46 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1513343686529_-1089408163",
+      "id": "20171215-131446_909118976",
+      "dateCreated": "Dec 15, 2017 1:14:46 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Playground/DecisionTrees",
+  "id": "2D38GG13Q",
+  "angularObjects": {
+    "2CYTRGJ4C:shared_process": [],
+    "2CXFBX3H1::2D38GG13Q": [],
+    "2CY4ANXKH:shared_process": [],
+    "2D1FAAA2W:shared_process": [],
+    "2D18CBQ4R:shared_process": [],
+    "2CYWNE1SK:shared_process": [],
+    "2CZ53PD9E:shared_process": [],
+    "2CXMSYMKE:shared_process": [],
+    "2CYXNMRRW:shared_process": [],
+    "2CYC381B1:shared_process": [],
+    "2CYUNTTZY:shared_process": [],
+    "2CYM4X6U4:shared_process": [],
+    "2CXY1FUQK:shared_process": [],
+    "2CY6ZF1J1:shared_process": [],
+    "2CX82UF88:shared_process": [],
+    "2CXNTVNX9:shared_process": [],
+    "2CZHUJN1A:shared_process": [],
+    "2CZSSYREP:shared_process": [],
+    "2CYABBU1U:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

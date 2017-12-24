@@ -1,0 +1,229 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n# Multivariate Regression",
+      "user": "user1",
+      "dateUpdated": "Nov 22, 2017 10:10:36 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eMultivariate Regression\u003c/h1\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511388626685_1495453185",
+      "id": "20171122-221026_2128146217",
+      "dateCreated": "Nov 22, 2017 10:10:26 PM",
+      "dateStarted": "Nov 22, 2017 10:10:36 PM",
+      "dateFinished": "Nov 22, 2017 10:10:36 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\nimport pandas as pd\n\ndf \u003d pd.read_excel(\u0027http://cdn.sundog-soft.com/Udemy/DataScience/cars.xls\u0027)\n\ndf.head()\n",
+      "user": "user1",
+      "dateUpdated": "Nov 22, 2017 10:16:41 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "          Price  Mileage   Make    Model      Trim   Type  Cylinder  Liter  \\\n0  17314.103129     8221  Buick  Century  Sedan 4D  Sedan         6    3.1   \n1  17542.036083     9135  Buick  Century  Sedan 4D  Sedan         6    3.1   \n2  16218.847862    13196  Buick  Century  Sedan 4D  Sedan         6    3.1   \n3  16336.913140    16342  Buick  Century  Sedan 4D  Sedan         6    3.1   \n4  16339.170324    19832  Buick  Century  Sedan 4D  Sedan         6    3.1   \n\n   Doors  Cruise  Sound  Leather  \n0      4       1      1        1  \n1      4       1      1        0  \n2      4       1      1        0  \n3      4       1      0        0  \n4      4       1      0        1  \n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511388636819_1460086935",
+      "id": "20171122-221036_930503463",
+      "dateCreated": "Nov 22, 2017 10:10:36 PM",
+      "dateStarted": "Nov 22, 2017 10:16:41 PM",
+      "dateFinished": "Nov 22, 2017 10:16:43 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nWe can user pandas to split up this matrix into the feature vectores we\u0027re interested in, and the value we\u0027re trying to predict\n\nNote how we are avoiding to make a model; regressions don\u0027t work well with ordinal values, unless you can convert them into some numerical order that makes sense somehow.\n\nLet\u0027s scale our feature data into the same range so we can easily compare the coefficients we end up with\n",
+      "user": "user1",
+      "dateUpdated": "Nov 22, 2017 10:20:08 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eWe can user pandas to split up this matrix into the feature vectores we\u0026rsquo;re interested in, and the value we\u0026rsquo;re trying to predict\u003c/p\u003e\n\u003cp\u003eNote how we are avoiding to make a model; regressions don\u0026rsquo;t work well with ordinal values, unless you can convert them into some numerical order that makes sense somehow.\u003c/p\u003e\n\u003cp\u003eLet\u0026rsquo;s scale our feature data into the same range so we can easily compare the coefficients we end up with\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511388872420_-1903248388",
+      "id": "20171122-221432_310268116",
+      "dateCreated": "Nov 22, 2017 10:14:32 PM",
+      "dateStarted": "Nov 22, 2017 10:20:08 PM",
+      "dateFinished": "Nov 22, 2017 10:20:08 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\nimport statsmodels.api as sm\nfrom sklearn.preprocessing import StandardScaler\nscale \u003d StandardScaler()\n\nX \u003d df[[\u0027Mileage\u0027, \u0027Cylinder\u0027, \u0027Doors\u0027]]\ny \u003d df[\u0027Price\u0027]\n\nX[[\u0027Mileage\u0027, \u0027Cylinder\u0027, \u0027Doors\u0027]] \u003d scale.fit_transform(X[[\u0027Mileage\u0027, \u0027Cylinder\u0027, \u0027Doors\u0027]].as_matrix())\n\n\nprint X\n\nest \u003d sm.OLS(y, X).fit()\n\nest.summary()",
+      "user": "user1",
+      "dateUpdated": "Nov 22, 2017 10:24:56 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "/opt/conda/lib/python2.7/site-packages/sklearn/utils/validation.py:475: DataConversionWarning: Data with input dtype int64 was converted to float64 by StandardScaler.\n  warnings.warn(msg, DataConversionWarning)\n\u003cstring\u003e:6: SettingWithCopyWarning: \nA value is trying to be set on a copy of a slice from a DataFrame.\nTry using .loc[row_indexer,col_indexer] \u003d value instead\n\nSee the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy\n/opt/conda/lib/python2.7/site-packages/pandas/core/indexing.py:537: SettingWithCopyWarning: \nA value is trying to be set on a copy of a slice from a DataFrame.\nTry using .loc[row_indexer,col_indexer] \u003d value instead\n\nSee the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy\n  self.obj[item] \u003d s\n      Mileage  Cylinder     Doors\n0   -1.417485  0.527410  0.556279\n1   -1.305902  0.527410  0.556279\n2   -0.810128  0.527410  0.556279\n3   -0.426058  0.527410  0.556279\n4    0.000008  0.527410  0.556279\n5    0.293493  0.527410  0.556279\n6    0.335001  0.527410  0.556279\n7    0.382369  0.527410  0.556279\n8    0.511409  0.527410  0.556279\n9    0.914768  0.527410  0.556279\n10  -1.171368  0.527410  0.556279\n11  -0.581834  0.527410  0.556279\n12  -0.390532  0.527410  0.556279\n13  -0.003899  0.527410  0.556279\n14   0.430591  0.527410  0.556279\n15   0.480156  0.527410  0.556279\n16   0.509822  0.527410  0.556279\n17   0.757160  0.527410  0.556279\n18   1.594886  0.527410  0.556279\n19   1.810849  0.527410  0.556279\n20  -1.326046  0.527410  0.556279\n21  -1.129860  0.527410  0.556279\n22  -0.667658  0.527410  0.556279\n23  -0.405792  0.527410  0.556279\n24  -0.112796  0.527410  0.556279\n25  -0.044552  0.527410  0.556279\n26   0.190700  0.527410  0.556279\n27   0.337442  0.527410  0.556279\n28   0.566102  0.527410  0.556279\n29   0.660837  0.527410  0.556279\n..        ...       ...       ...\n774 -0.161262 -0.914896  0.556279\n775 -0.089234 -0.914896  0.556279\n776 -0.040523 -0.914896  0.556279\n777  0.002572 -0.914896  0.556279\n778  0.236603 -0.914896  0.556279\n779  0.249666 -0.914896  0.556279\n780  0.357220 -0.914896  0.556279\n781  0.365521 -0.914896  0.556279\n782  0.434131 -0.914896  0.556279\n783  0.517269 -0.914896  0.556279\n784  0.589908 -0.914896  0.556279\n785  0.599186 -0.914896  0.556279\n786  0.793052 -0.914896  0.556279\n787  1.033554 -0.914896  0.556279\n788  1.045762 -0.914896  0.556279\n789  1.205567 -0.914896  0.556279\n790  1.541414 -0.914896  0.556279\n791  1.561070 -0.914896  0.556279\n792  1.725026 -0.914896  0.556279\n793  1.851502 -0.914896  0.556279\n794 -1.709871  0.527410  0.556279\n795 -1.474375  0.527410  0.556279\n796 -1.187849  0.527410  0.556279\n797 -1.079929  0.527410  0.556279\n798 -0.682430  0.527410  0.556279\n799 -0.439853  0.527410  0.556279\n800 -0.089966  0.527410  0.556279\n801  0.079605  0.527410  0.556279\n802  0.750446  0.527410  0.556279\n803  1.932565  0.527410  0.556279\n\n[804 rows x 3 columns]\n\u003cclass \u0027statsmodels.iolib.summary.Summary\u0027\u003e\n\"\"\"\n                            OLS Regression Results                            \n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nDep. Variable:                  Price   R-squared:                       0.064\nModel:                            OLS   Adj. R-squared:                  0.060\nMethod:                 Least Squares   F-statistic:                     18.11\nDate:                Wed, 22 Nov 2017   Prob (F-statistic):           2.23e-11\nTime:                        22:24:56   Log-Likelihood:                -9207.1\nNo. Observations:                 804   AIC:                         1.842e+04\nDf Residuals:                     801   BIC:                         1.843e+04\nDf Model:                           3                                         \nCovariance Type:            nonrobust                                         \n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n                 coef    std err          t      P\u003e|t|      [0.025      0.975]\n------------------------------------------------------------------------------\nMileage    -1272.3412    804.623     -1.581      0.114   -2851.759     307.077\nCylinder    5587.4472    804.509      6.945      0.000    4008.252    7166.642\nDoors      -1404.5513    804.275     -1.746      0.081   -2983.288     174.185\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nOmnibus:                      157.913   Durbin-Watson:                   0.008\nProb(Omnibus):                  0.000   Jarque-Bera (JB):              257.529\nSkew:                           1.278   Prob(JB):                     1.20e-56\nKurtosis:                       4.074   Cond. No.                         1.03\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\nWarnings:\n[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.\n\"\"\"\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511389208825_-1263525338",
+      "id": "20171122-222008_1460741836",
+      "dateCreated": "Nov 22, 2017 10:20:08 PM",
+      "dateStarted": "Nov 22, 2017 10:24:56 PM",
+      "dateFinished": "Nov 22, 2017 10:24:56 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh \npip install statsmodels\n",
+      "user": "user1",
+      "dateUpdated": "Nov 22, 2017 10:24:14 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Collecting statsmodels\n  Downloading statsmodels-0.8.0-cp27-cp27mu-manylinux1_x86_64.whl (6.2MB)\nRequirement already satisfied: scipy in /opt/conda/lib/python2.7/site-packages (from statsmodels)\nCollecting patsy (from statsmodels)\n  Downloading patsy-0.4.1-py2.py3-none-any.whl (233kB)\nRequirement already satisfied: pandas in /opt/conda/lib/python2.7/site-packages (from statsmodels)\nRequirement already satisfied: numpy\u003e\u003d1.8.2 in /opt/conda/lib/python2.7/site-packages (from scipy-\u003estatsmodels)\nRequirement already satisfied: six in /opt/conda/lib/python2.7/site-packages (from patsy-\u003estatsmodels)\nRequirement already satisfied: pytz\u003e\u003d2011k in /opt/conda/lib/python2.7/site-packages (from pandas-\u003estatsmodels)\nRequirement already satisfied: python-dateutil in /opt/conda/lib/python2.7/site-packages (from pandas-\u003estatsmodels)\nInstalling collected packages: patsy, statsmodels\nSuccessfully installed patsy-0.4.1 statsmodels-0.8.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511389440203_-1711652182",
+      "id": "20171122-222400_1021709796",
+      "dateCreated": "Nov 22, 2017 10:24:00 PM",
+      "dateStarted": "Nov 22, 2017 10:24:14 PM",
+      "dateFinished": "Nov 22, 2017 10:24:24 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n",
+      "user": "user1",
+      "dateUpdated": "Nov 22, 2017 10:24:14 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1511389454201_458731688",
+      "id": "20171122-222414_404904893",
+      "dateCreated": "Nov 22, 2017 10:24:14 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Playground/MultivariateRegression",
+  "id": "2CZNN7VK9",
+  "angularObjects": {
+    "2CXFBX3H1::2CZNN7VK9": [],
+    "2CYTRGJ4C:shared_process": [],
+    "2CY4ANXKH:shared_process": [],
+    "2D1FAAA2W:shared_process": [],
+    "2D18CBQ4R:shared_process": [],
+    "2CYWNE1SK:shared_process": [],
+    "2CZ53PD9E:shared_process": [],
+    "2CXMSYMKE:shared_process": [],
+    "2CYXNMRRW:shared_process": [],
+    "2CYC381B1:shared_process": [],
+    "2CYUNTTZY:shared_process": [],
+    "2CYM4X6U4:shared_process": [],
+    "2CXY1FUQK:shared_process": [],
+    "2CY6ZF1J1:shared_process": [],
+    "2CX82UF88:shared_process": [],
+    "2CXNTVNX9:shared_process": [],
+    "2CZHUJN1A:shared_process": [],
+    "2CZSSYREP:shared_process": [],
+    "2CYABBU1U:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

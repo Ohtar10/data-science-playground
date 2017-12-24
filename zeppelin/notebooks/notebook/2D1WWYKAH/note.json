@@ -1,0 +1,343 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md \n# Naive Bayes (the easy way)\nWe\u0027ll cheat by using sklearn.naive_bayes to train a spam classifier! Most of the code is just loading our training data into a pandas DataFrame that we can play with:",
+      "user": "admin",
+      "dateUpdated": "Dec 15, 2017 2:30:30 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eNaive Bayes (the easy way)\u003c/h1\u003e\n\u003cp\u003eWe\u0026rsquo;ll cheat by using sklearn.naive_bayes to train a spam classifier! Most of the code is just loading our training data into a pandas DataFrame that we can play with:\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1513347758123_-328348077",
+      "id": "20171215-142238_87263138",
+      "dateCreated": "Dec 15, 2017 2:22:38 PM",
+      "dateStarted": "Dec 15, 2017 2:30:30 PM",
+      "dateFinished": "Dec 15, 2017 2:30:30 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nimport os\nimport io\nimport numpy\nfrom pandas import DataFrame\nfrom sklearn.feature_extraction.text import CountVectorizer\nfrom sklearn.naive_bayes import MultinomialNB\n\ndef readFiles(path):\n    for root, dirnames, filenames in os.walk(path):\n        for filename in filenames:\n            path \u003d os.path.join(root, filename)\n\n            inBody \u003d False\n            lines \u003d []\n            f \u003d io.open(path, \u0027r\u0027, encoding\u003d\u0027latin1\u0027)\n            for line in f:\n                if inBody:\n                    lines.append(line)\n                elif line \u003d\u003d \u0027\\n\u0027:\n                    inBody \u003d True\n            f.close()\n            message \u003d \u0027\\n\u0027.join(lines)\n            yield path, message\n\n\ndef dataFrameFromDirectory(path, classification):\n    rows \u003d []\n    index \u003d []\n    for filename, message in readFiles(path):\n        rows.append({\u0027message\u0027: message, \u0027class\u0027: classification})\n        index.append(filename)\n\n    return DataFrame(rows, index\u003dindex)\n\ndata \u003d DataFrame({\u0027message\u0027: [], \u0027class\u0027: []})\n\ndata \u003d data.append(dataFrameFromDirectory(\u0027/zeppelin/datasets/emails/spam\u0027, \u0027spam\u0027))\ndata \u003d data.append(dataFrameFromDirectory(\u0027/zeppelin/datasets/emails/ham\u0027, \u0027ham\u0027))\n",
+      "user": "admin",
+      "dateUpdated": "Dec 15, 2017 2:31:30 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1513348229990_382938268",
+      "id": "20171215-143029_1178571573",
+      "dateCreated": "Dec 15, 2017 2:30:29 PM",
+      "dateStarted": "Dec 15, 2017 2:31:30 PM",
+      "dateFinished": "Dec 15, 2017 2:31:31 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\ndata.head()",
+      "user": "admin",
+      "dateUpdated": "Dec 15, 2017 2:32:22 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "                                                   class  \\\n/zeppelin/datasets/emails/spam/00354.dca4b89848...  spam   \n/zeppelin/datasets/emails/spam/00318.7ce7e3cbbf...  spam   \n/zeppelin/datasets/emails/spam/00375.1130c29a25...  spam   \n/zeppelin/datasets/emails/spam/00458.62211764fd...  spam   \n/zeppelin/datasets/emails/spam/00301.68fe7955b9...  spam   \n\n                                                                                              message  \n/zeppelin/datasets/emails/spam/00354.dca4b89848...  New Account For: zzzz@spamassassin.taint.org\\n...  \n/zeppelin/datasets/emails/spam/00318.7ce7e3cbbf...  \\n\\n       Socijalisticka partija Srbije, pred...  \n/zeppelin/datasets/emails/spam/00375.1130c29a25...  \\n\\n\u003chtml\u003e\\n\\n\u003chead\u003e\\n\\n\u003ctitle\u003eSlim Factors\u003c/t...  \n/zeppelin/datasets/emails/spam/00458.62211764fd...  Immediate Help Needed.  We are a fortune 500 c...  \n/zeppelin/datasets/emails/spam/00301.68fe7955b9...  *** FREE BONUS OFFER - SEE BELOW ***\\n\\n\\n\\nWe...  \n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1513348290016_-674074229",
+      "id": "20171215-143130_1332092961",
+      "dateCreated": "Dec 15, 2017 2:31:30 PM",
+      "dateStarted": "Dec 15, 2017 2:32:22 PM",
+      "dateFinished": "Dec 15, 2017 2:32:22 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nNow we will use a CountVectorizer to split up each message into its list of words, and throw that into a MultinomialNB classifier. Call fit() and we\u0027ve got a trained spam filter ready to go! It\u0027s just that easy.\n",
+      "user": "admin",
+      "dateUpdated": "Dec 15, 2017 2:32:57 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eNow we will use a CountVectorizer to split up each message into its list of words, and throw that into a MultinomialNB classifier. Call fit() and we\u0026rsquo;ve got a trained spam filter ready to go! It\u0026rsquo;s just that easy.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1513348311591_2039990484",
+      "id": "20171215-143151_179730962",
+      "dateCreated": "Dec 15, 2017 2:31:51 PM",
+      "dateStarted": "Dec 15, 2017 2:32:57 PM",
+      "dateFinished": "Dec 15, 2017 2:32:57 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\nvectorizer \u003d CountVectorizer()\ncounts \u003d vectorizer.fit_transform(data[\u0027message\u0027].values)\n\nclassifier \u003d MultinomialNB()\ntargets \u003d data[\u0027class\u0027].values\nclassifier.fit(counts, targets)\n",
+      "user": "admin",
+      "dateUpdated": "Dec 15, 2017 2:45:52 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "MultinomialNB(alpha\u003d1.0, class_prior\u003dNone, fit_prior\u003dTrue)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1513348377554_1628601965",
+      "id": "20171215-143257_68457681",
+      "dateCreated": "Dec 15, 2017 2:32:57 PM",
+      "dateStarted": "Dec 15, 2017 2:45:52 PM",
+      "dateFinished": "Dec 15, 2017 2:45:53 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n# Let\u0027s Try it\n",
+      "user": "admin",
+      "dateUpdated": "Dec 15, 2017 2:46:49 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eLet\u0026rsquo;s Try it\u003c/h1\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1513349123077_-1475122560",
+      "id": "20171215-144523_1087780478",
+      "dateCreated": "Dec 15, 2017 2:45:23 PM",
+      "dateStarted": "Dec 15, 2017 2:46:49 PM",
+      "dateFinished": "Dec 15, 2017 2:46:49 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\nexamples \u003d [\u0027Free Viagra now!!!!\u0027, \u0027Hi bob, how about a game of golf tomorrow\u0027]\nexample_counts \u003d vectorizer.transform(examples)\npredictions \u003d classifier.predict(example_counts)\npredictions",
+      "user": "admin",
+      "dateUpdated": "Dec 15, 2017 2:48:06 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "array([\u0027spam\u0027, \u0027ham\u0027],\n      dtype\u003d\u0027|S4\u0027)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1513349209863_1878623044",
+      "id": "20171215-144649_367995836",
+      "dateCreated": "Dec 15, 2017 2:46:49 PM",
+      "dateStarted": "Dec 15, 2017 2:48:06 PM",
+      "dateFinished": "Dec 15, 2017 2:48:06 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n",
+      "user": "admin",
+      "dateUpdated": "Dec 15, 2017 2:49:01 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[\u003c1x62964 sparse matrix of type \u0027\u003ctype \u0027numpy.int64\u0027\u003e\u0027\n\twith 3 stored elements in Compressed Sparse Row format\u003e, \u003c1x62964 sparse matrix of type \u0027\u003ctype \u0027numpy.int64\u0027\u003e\u0027\n\twith 8 stored elements in Compressed Sparse Row format\u003e]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1513349286726_-1891223300",
+      "id": "20171215-144806_8593041",
+      "dateCreated": "Dec 15, 2017 2:48:06 PM",
+      "dateStarted": "Dec 15, 2017 2:48:44 PM",
+      "dateFinished": "Dec 15, 2017 2:48:44 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n",
+      "user": "admin",
+      "dateUpdated": "Dec 15, 2017 2:48:17 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1513349297711_-443782614",
+      "id": "20171215-144817_478942307",
+      "dateCreated": "Dec 15, 2017 2:48:17 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "/Playground/NaiveBayes",
+  "id": "2D1WWYKAH",
+  "angularObjects": {
+    "2CYTRGJ4C:shared_process": [],
+    "2CY4ANXKH:shared_process": [],
+    "2D1FAAA2W:shared_process": [],
+    "2D18CBQ4R:shared_process": [],
+    "2CXFBX3H1::2D1WWYKAH": [],
+    "2CYWNE1SK:shared_process": [],
+    "2CZ53PD9E:shared_process": [],
+    "2CXMSYMKE:shared_process": [],
+    "2CYXNMRRW:shared_process": [],
+    "2CYC381B1:shared_process": [],
+    "2CYUNTTZY:shared_process": [],
+    "2CYM4X6U4:shared_process": [],
+    "2CXY1FUQK:shared_process": [],
+    "2CY6ZF1J1:shared_process": [],
+    "2CX82UF88:shared_process": [],
+    "2CXNTVNX9:shared_process": [],
+    "2CZHUJN1A:shared_process": [],
+    "2CZSSYREP:shared_process": [],
+    "2CYABBU1U:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

@@ -1,0 +1,415 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n# Moments: Mean, Variance, Skew, Kurtosis\n\n**Mean:** Just the arithmetic mean of the dataset, this is the first moment\n**Variance:** It measures how far a set of (random) numbers are spread out from their average value, this is the second moment\n**Skew:** It measures how inclined the data is towards the lef or the right of the mean, a thin tail on the left gives a negative skewness index, a thin tail on the right gives a positive skewness index\n**Kurtosis:** It measures the sharpeness of the peak of the distribution, a high kurtosis value means the data is very concentrated around the mean",
+      "user": "user1",
+      "dateUpdated": "Nov 20, 2017 6:19:35 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eMoments: Mean, Variance, Skew, Kurtosis\u003c/h1\u003e\n\u003cp\u003e\u003cstrong\u003eMean:\u003c/strong\u003e Just the arithmetic mean of the dataset, this is the first moment\u003cbr/\u003e\u003cstrong\u003eVariance:\u003c/strong\u003e It measures how far a set of (random) numbers are spread out from their average value, this is the second moment\u003cbr/\u003e\u003cstrong\u003eSkew:\u003c/strong\u003e It measures how inclined the data is towards the lef or the right of the mean, a thin tail on the left gives a negative skewness index, a thin tail on the right gives a positive skewness index\u003cbr/\u003e\u003cstrong\u003eKurtosis:\u003c/strong\u003e It measures the sharpeness of the peak of the distribution, a high kurtosis value means the data is very concentrated around the mean\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511201537507_-1050142284",
+      "id": "20171120-181217_1879197407",
+      "dateCreated": "Nov 20, 2017 6:12:17 PM",
+      "dateStarted": "Nov 20, 2017 6:19:35 PM",
+      "dateFinished": "Nov 20, 2017 6:19:35 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nimport numpy as np\nimport matplotlib.pyplot as plt\n# Generate 10000 random values with 0 as the mean and 0.5 as the standard deviation\nvalues \u003d np.random.normal(0, 0.5, 10000)\n\nplt.hist(values, 50)\nplt.show()\n",
+      "user": "user1",
+      "dateUpdated": "Nov 20, 2017 6:20:53 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv style\u003d\u0027width:auto;height:auto\u0027\u003e\u003cimg src\u003ddata:image/png;base64,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o0ePJknefPPN3HDDDWlra8vixYuzd+/eOk4NADSShguse++9N/PmzRv79Z133pnbb789L774Ys4555xs3LgxSbJx48acc845efHFF3P77bfnzjvvrNfIAECDaajA2r9/f7Zt25Zbb701SVJVVR5//PGsWrUqSdLd3Z2tW7cmSQYGBtLd3Z0kWbVqVXbu3JmqquozOADQUJrqPUBJf/zHf5yvfvWree2115IkBw8ezKc+9ak0Nf3PMltbWzM8PJwkGR4ezqxZs5IkTU1NmTp1ag4ePJjPfOYz9RkePgTnbdhW7xEAzkgNs4P1rW99K83NzbnsssuKPm9fX186OjrS0dGRAwcOFH1uAKAxNcwO1pNPPplHH30027dvzxtvvJGf/exnue2223LkyJEcO3YsTU1N2b9/f1paWpIkLS0t2bdvX1pbW3Ps2LG8+uqrOffcc0943p6envT09CRJOjo6xnVNAMDk1DA7WHfddVf279+fvXv35qGHHsqyZcvyD//wD7nyyiuzZcuWJEl/f39WrlyZJOnq6kp/f3+SZMuWLVm2bFlqtVrd5gcAGkfDBNYvc/fdd+drX/ta2tracvDgwaxduzZJsnbt2hw8eDBtbW352te+lt7e3jpPCgA0ioY5RfhOS5cuzdKlS5Mkc+bMye7du0845mMf+1geeeSRcZ4MADgTNPwOFgDAeGvIHSyAiexUl8/Y23vtOE0CfFjsYAEAFCawAAAKE1gAAIUJLACAwgQWAEBhAgsAoDCBBQBQmMACACjMhUYBJphTXYg0cTFSmOjsYAEAFCawAAAKE1gAAIUJLACAwgQWAEBhAgsAoDCBBQBQmMACAChMYAEAFOZK7jCJnc4VvwEYf3awAAAKE1gAAIUJLACAwgQWAEBhAgsAoDCBBQBQmMACAChMYAEAFCawAAAKE1gAAIUJLACAwgQWAEBhAgsAoDCBBQBQWMME1htvvJHPfvazufjii7NgwYL82Z/9WZLk5ZdfzuLFi9PW1pYbbrghR48eTZK8+eabueGGG9LW1pbFixdn7969dZweAGgkDRNYH/3oR/P444/nBz/4QZ577rk89thj2bVrV+68887cfvvtefHFF3POOedk48aNSZKNGzfmnHPOyYsvvpjbb789d955Z51XAAA0ioYJrFqtlk984hNJkrfeeitvvfVWarVaHn/88axatSpJ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c+Zk6dKlefbZZydMYJ3Oz/t/j2ltbc2xY8fy6quv5txzzx3vUU/L6aznnbPfeuutueOOO8Ztvg/DRPsz80G9M05WrFiRL3zhC3nllVfymc+U+lbX8t56661cf/31ufnmm/P5z3/+hPsb7TWaCJwiHGePPfZYvvrVr+bRRx/NlClTTnpMo32Nz+uvv57XXntt7J+//e1v/9JP50wGk+n16erqSn9/f5Kkv7//pDt0hw8fzptvvpkkeeWVV/Lkk09m/vz54zrnezmdn/c717lly5YsW7bsl+7W1dvprOed73159NFHM2/evPEes6iurq5s3rw5VVVl165dmTp16tip68noJz/5ydh7/Hbv3p233357wgZ98j+fEFy7dm3mzZuXL33pSyc9ptFeowmhrm+xPwOdf/75VWtra3XxxRdXF1988dgnn4aHh6trrrlm7Lht27ZVc+fOrebMmVP91V/9Vb3GPaV/+qd/qlpaWqqzzjqram5urq666qqqqt69npdeeqlqb2+v2tvbq/nz50/69VTV5Hl9XnnllWrZsmVVW1tbtXz58urgwYNVVVXV97///Wrt2rVVVVXVk08+WS1cuLBqb2+vFi5cWN1///31HPmkTvbz/tM//dNqYGCgqqqq+sUvflGtWrWqOv/886vLL7+8eumll+o57imdaj0bNmyo5s+fX7W3t1dLly6t/uM//qOe457SjTfeWM2YMaNqamqqWlpaqvvvv7/6xje+UX3jG9+oqqqq3n777eoLX/hCNWfOnGrhwoXv+YnjieBU6/n6178+9vosXry4evLJJ+s88Xv793//9ypJddFFF4393bNt27ZJ/RpNBq7kDgBQmFOEAACFCSwAgMIEFgBAYQILAKAwgQUAUJjAAgAoTGABABQmsAAAChNYAACFCSwAgMIEFgBAYQILAKAwgQUAUJjAAgAoTGABABQmsAAAChNYAACFCSwAgMIEFgBAYQILAKAwgQUAUJjAAgAoTGABABQmsAAAChNYAACFCSwAgMIEFgBAYQILAKCw/wf/XSH6MZ55dgAAAABJRU5ErkJggg\u003d\u003d style\u003d\u0027width\u003dauto;height:auto\u0027\u003e\u003cdiv\u003e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511201606582_-1811252229",
+      "id": "20171120-181326_405744187",
+      "dateCreated": "Nov 20, 2017 6:13:26 PM",
+      "dateStarted": "Nov 20, 2017 6:20:53 PM",
+      "dateFinished": "Nov 20, 2017 6:20:58 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### The first moment is the mean; this data should average out about 0:",
+      "user": "user1",
+      "dateUpdated": "Nov 20, 2017 6:23:11 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eThe first moment is the mean; this data should average out about 0:\u003c/h4\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511202053151_2136683594",
+      "id": "20171120-182053_68279567",
+      "dateCreated": "Nov 20, 2017 6:20:53 PM",
+      "dateStarted": "Nov 20, 2017 6:23:11 PM",
+      "dateFinished": "Nov 20, 2017 6:23:11 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nprint \"The average of the dataset is %f\" % np.mean(values)\n",
+      "user": "user1",
+      "dateUpdated": "Nov 20, 2017 6:23:42 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "The average of the dataset is -0.004407\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511202191527_-1697138336",
+      "id": "20171120-182311_11252925",
+      "dateCreated": "Nov 20, 2017 6:23:11 PM",
+      "dateStarted": "Nov 20, 2017 6:23:42 PM",
+      "dateFinished": "Nov 20, 2017 6:23:42 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### The second moment is the variance:\n",
+      "user": "user1",
+      "dateUpdated": "Nov 20, 2017 6:24:31 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eThe second moment is the variance:\u003c/h4\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511202222127_2034987291",
+      "id": "20171120-182342_898701372",
+      "dateCreated": "Nov 20, 2017 6:23:42 PM",
+      "dateStarted": "Nov 20, 2017 6:24:31 PM",
+      "dateFinished": "Nov 20, 2017 6:24:31 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nprint \"The variance is %f\" % np.var(values)\n",
+      "user": "user1",
+      "dateUpdated": "Nov 20, 2017 6:25:20 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "The variance is 0.253360\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511202271153_-1883082613",
+      "id": "20171120-182431_1683446938",
+      "dateCreated": "Nov 20, 2017 6:24:31 PM",
+      "dateStarted": "Nov 20, 2017 6:25:20 PM",
+      "dateFinished": "Nov 20, 2017 6:25:20 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### The thid moment is the skew, since our data is nicely centered around 0, it should be almost 0:\n",
+      "user": "user1",
+      "dateUpdated": "Nov 20, 2017 6:26:31 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eThe thid moment is the skew, since our data is nicely centered around 0, it should be almost 0:\u003c/h4\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511202325188_201779731",
+      "id": "20171120-182525_1602999166",
+      "dateCreated": "Nov 20, 2017 6:25:25 PM",
+      "dateStarted": "Nov 20, 2017 6:26:31 PM",
+      "dateFinished": "Nov 20, 2017 6:26:31 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nimport scipy.stats as sp\nprint \"The Skewness of the values is %f\" % sp.skew(values)",
+      "user": "user1",
+      "dateUpdated": "Nov 20, 2017 6:27:40 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "The Skewness of the values is 0.026379\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511202312153_-1587718052",
+      "id": "20171120-182512_1492997599",
+      "dateCreated": "Nov 20, 2017 6:25:12 PM",
+      "dateStarted": "Nov 20, 2017 6:27:40 PM",
+      "dateFinished": "Nov 20, 2017 6:27:40 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### The fourth moment is kurtosis, which describes the shape of the tail, for a normal distribution, this is 0\n",
+      "user": "user1",
+      "dateUpdated": "Nov 20, 2017 6:29:23 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eThe fourth moment is kurtosis, which describes the shape of the tail, for a normal distribution, this is 0\u003c/h4\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511202460242_627128125",
+      "id": "20171120-182740_1938457168",
+      "dateCreated": "Nov 20, 2017 6:27:40 PM",
+      "dateStarted": "Nov 20, 2017 6:29:23 PM",
+      "dateFinished": "Nov 20, 2017 6:29:23 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nprint \"The Kurtosis is: %f\" % sp.kurtosis(values)\n",
+      "user": "user1",
+      "dateUpdated": "Nov 20, 2017 6:29:56 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "The Kurtosis is: -0.043930\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511202556618_-1940768113",
+      "id": "20171120-182916_58484012",
+      "dateCreated": "Nov 20, 2017 6:29:16 PM",
+      "dateStarted": "Nov 20, 2017 6:29:56 PM",
+      "dateFinished": "Nov 20, 2017 6:29:56 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n",
+      "user": "user1",
+      "dateUpdated": "Nov 20, 2017 6:29:56 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1511202596143_-1445534982",
+      "id": "20171120-182956_1995270968",
+      "dateCreated": "Nov 20, 2017 6:29:56 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Playground/moments",
+  "id": "2D1BCXXJQ",
+  "angularObjects": {
+    "2CYTRGJ4C:shared_process": [],
+    "2CY4ANXKH:shared_process": [],
+    "2D1FAAA2W:shared_process": [],
+    "2D18CBQ4R:shared_process": [],
+    "2CYWNE1SK:shared_process": [],
+    "2CXFBX3H1::2D1BCXXJQ": [],
+    "2CZ53PD9E:shared_process": [],
+    "2CXMSYMKE:shared_process": [],
+    "2CYXNMRRW:shared_process": [],
+    "2CYC381B1:shared_process": [],
+    "2CYUNTTZY:shared_process": [],
+    "2CYM4X6U4:shared_process": [],
+    "2CXY1FUQK:shared_process": [],
+    "2CY6ZF1J1:shared_process": [],
+    "2CX82UF88:shared_process": [],
+    "2CXNTVNX9:shared_process": [],
+    "2CZHUJN1A:shared_process": [],
+    "2CZSSYREP:shared_process": [],
+    "2CYABBU1U:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

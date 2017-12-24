@@ -1,0 +1,472 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n# Machine Learning\nPodemos definir Machine Learning como el arte de hacer que la máquina aprenda de una información que se le provee, de tal forma que entienda cuales son las relaciones internas de esos datos, para luego generar un modelo que nos permita predecir o hacer inferencia sobre nuevos datos del mismo tipo de tal forma que podamos determinar un posible comportamiento, camino o asociación.\n",
+      "user": "user1",
+      "dateUpdated": "Nov 24, 2017 12:41:53 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eMachine Learning\u003c/h1\u003e\n\u003cp\u003ePodemos definir Machine Learning como el arte de hacer que la máquina aprenda de una información que se le provee, de tal forma que entienda cuales son las relaciones internas de esos datos, para luego generar un modelo que nos permita predecir o hacer inferencia sobre nuevos datos del mismo tipo de tal forma que podamos determinar un posible comportamiento, camino o asociación.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511479478173_191833325",
+      "id": "20171123-232438_795741903",
+      "dateCreated": "Nov 23, 2017 11:24:38 PM",
+      "dateStarted": "Nov 24, 2017 12:41:53 PM",
+      "dateFinished": "Nov 24, 2017 12:41:53 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n# Aplicabilidad\nUna comparación interesante es que, clásicamente en tareas de desarrollo de software, se definen para el sistema una serie de reglas de negocio, que comienzan por ser los requisitos, casos de uso etc. Luego, estas reglas\ndeben ser traducidas en código fuente por un desarrollador, usualmente en sentencias if y else, que finalmente todas unidas constituyen la lógica de un programa o sistema. Por ejemplo:\n",
+      "user": "user1",
+      "dateUpdated": "Nov 24, 2017 12:41:50 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eAplicabilidad\u003c/h1\u003e\n\u003cp\u003eUna comparación interesante es que, clásicamente en tareas de desarrollo de software, se definen para el sistema una serie de reglas de negocio, que comienzan por ser los requisitos, casos de uso etc. Luego, estas reglas\u003cbr/\u003edeben ser traducidas en código fuente por un desarrollador, usualmente en sentencias if y else, que finalmente todas unidas constituyen la lógica de un programa o sistema. Por ejemplo:\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511527268076_165364227",
+      "id": "20171124-124108_949650326",
+      "dateCreated": "Nov 24, 2017 12:41:08 PM",
+      "dateStarted": "Nov 24, 2017 12:41:44 PM",
+      "dateFinished": "Nov 24, 2017 12:41:46 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\ndef es_seguro_prestar(sueldo, propiedades, nivel_estudios, deudas):\n    # si se gana menos de un millón de pesos\n    if sueldo \u003c 1000000:\n        return False\n    # si las propiedades son inferiores a 30 millones\n    if propiedades \u003c 30000000:\n        return False\n    # si no tiene alguno de estos niveles de estudios\n    if nivel_estudios not in [\u0027profesional\u0027, \u0027especialización\u0027, \u0027maestría\u0027, \u0027doctorado\u0027]:\n        return False\n    # si tiene deudas superiores a 40 millones\n    if deudas \u003e 40000000:\n        return False\n    # Entonces si le puedo prestar :)\n    return True\n\npersonas \u003d { \u0027pepito\u0027: es_seguro_prestar(2000000, 28000000, \u0027profesional\u0027, 5000000),\n             \u0027juanito\u0027: es_seguro_prestar(3000000, 5000000, \u0027especialización\u0027, 70000000),\n             \u0027dianita\u0027: es_seguro_prestar(1200000, 30000000, \u0027profesional\u0027, 1000000),\n             \u0027jorgito\u0027: es_seguro_prestar(900000, 800000, \u0027profesional\u0027, 0),\n             \u0027johanita\u0027: es_seguro_prestar(6000000, 28000000, \u0027maestría\u0027, 600000),\n             \u0027julito\u0027: es_seguro_prestar(9000000, 48000000, \u0027doctorado\u0027, 2000000)\n             }\n\nfor p, r in personas.items():\n    resultado \u003d \u0027No\u0027\n    if r:\n        resultado \u003d \u0027Sí\u0027\n    \n    print \"Le prestamos a %s?.....%s\" % (p, resultado)\n\n",
+      "user": "user1",
+      "dateUpdated": "Nov 24, 2017 12:18:37 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Le prestamos a pepito?.....No\nLe prestamos a johanita?.....No\nLe prestamos a julito?.....Sí\nLe prestamos a dianita?.....Sí\nLe prestamos a jorgito?.....No\nLe prestamos a juanito?.....No\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511479487474_-1809245705",
+      "id": "20171123-232447_732243383",
+      "dateCreated": "Nov 23, 2017 11:24:47 PM",
+      "dateStarted": "Nov 24, 2017 12:18:37 AM",
+      "dateFinished": "Nov 24, 2017 12:18:37 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n# ¿Y cual es el problema?\nPues muchos\n* La lógica es estática, asi los valores se puedan almacenar aparte, sigue siendo eståtico\n* Dependemos del desarrollador todo el tiempo\n* No es extensible ni responde a cambios en el contexto\n* Es costoso mantener la función.\n \n### ¿Que propuestas hay en ese caso? .... Machine Learning al rescate!\n#### El propósito de implementar una solución de este tipo basado en machine learning es evitar estos por menores mencionados anteriormente, haciendo que el programa no solo genere un resultado por nosotros sino que también genere los \"if\" y \"else\" por nosotros. \nPara que esto funcione, es necesario contar con datos historicos que nos permitan observar los acontecimientos, propiedades y resultados y obtener un \"modelo\" que nos permita predecir que puede llegar a pasar con nuevas instancias de esos datos.",
+      "user": "user1",
+      "dateUpdated": "Nov 24, 2017 4:45:44 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003e¿Y cual es el problema?\u003c/h1\u003e\n\u003cp\u003ePues muchos\u003cbr/\u003e* La lógica es estática, asi los valores se puedan almacenar aparte, sigue siendo eståtico\u003cbr/\u003e* Dependemos del desarrollador todo el tiempo\u003cbr/\u003e* No es extensible ni responde a cambios en el contexto\u003cbr/\u003e* Es costoso mantener la función.\u003c/p\u003e\n\u003ch3\u003e¿Que propuestas hay en ese caso? \u0026hellip;. Machine Learning al rescate!\u003c/h3\u003e\n\u003ch4\u003eEl propósito de implementar una solución de este tipo basado en machine learning es evitar estos por menores mencionados anteriormente, haciendo que el programa no solo genere un resultado por nosotros sino que también genere los \u0026ldquo;if\u0026rdquo; y \u0026ldquo;else\u0026rdquo; por nosotros.\u003c/h4\u003e\n\u003cp\u003ePara que esto funcione, es necesario contar con datos historicos que nos permitan observar los acontecimientos, propiedades y resultados y obtener un \u0026ldquo;modelo\u0026rdquo; que nos permita predecir que puede llegar a pasar con nuevas instancias de esos datos.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511482690133_2091908331",
+      "id": "20171124-001810_487414386",
+      "dateCreated": "Nov 24, 2017 12:18:10 AM",
+      "dateStarted": "Nov 24, 2017 4:45:33 PM",
+      "dateFinished": "Nov 24, 2017 4:45:33 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## Ejemplo con Apache Spark ![Alt](https://www.infoq.com/resource/articles/apache-spark-machine-learning/en/smallimage/Spark-MLib.jpg \"Spark\")\n\nApache Spark es un framework para el procesamiento distribuido de grandes volumenes de datos, facilita enormemente el llevar un programa y los datos a un grupo de máquinas de tal forma que un conjunto de datos enorme pueda ser procesado en paralelo por estas.\n\nSpark contiene ademas un módulo dedicado a Machine Leraning (MLib) el cual consta de varias implementaciones de algoritmos conocidos sobre este tema como DecisionTrees, KMeans, NaiveBayes, RecommenderSystems, LinearRegression entre otros. Esto facilita enromemente el trabajo pues las implementaciones de estos suelen ser bastante complejas, además de que estas implementaciones están ya diseñadas para trabajar optimamente dentro del paradigma distribuido de Spark.\n\n### Árboles de Decisión\nUna posible forma de afrontar este problema es entonces la técnica de árboles de decisión, la cual consiste en construir, naturalmente un árbol, cuyas ramas representan un atributo y valor particulares que según un análisis de ganancias y entropía pueden hacer que la **decisión** se incline a una **clase** u otra, visualmente se podría obtener en algo como:\n![Alt](https://www.edureka.co/blog/wp-content/uploads/2015/01/tree2.png \"Decision\")\n\nNaturalmente este árbol puede representarse en sentencias If y Else por lo que se convierte en una herramienta muy útil para nuestro objetivo particular.\n\n#### ¿Cómo funciona?\nComo se mencionó antes, se parte de un conjunto de datos historico que contiene una serie de atributos (features) y un resultado (label o clase) que nos permite extraer información estadística de que valores pueden influenciar mas a que cierta clase se de, esto se realiza usualmente mediante el cálculo de la entropía de las clases y la entropía de cada atributo para hallar seleccionar el de mayor pureza o aquel atributo que mejor explica la decisión.\n\nVer: http://www.csun.edu/~twang/595DM/Slides/Week4.pdf\n\n\nPara este ejemplo, utilizaremos un conjunto de datos de prueba con estructura similar a la anterior, con la diferencia de que por simplicidad, todos los valores seran numericos:\n",
+      "user": "user1",
+      "dateUpdated": "Nov 24, 2017 3:33:07 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eEjemplo con Apache Spark \u003cimg src\u003d\"https://www.infoq.com/resource/articles/apache-spark-machine-learning/en/smallimage/Spark-MLib.jpg\" alt\u003d\"Alt\" title\u003d\"Spark\" /\u003e\u003c/h2\u003e\n\u003cp\u003eApache Spark es un framework para el procesamiento distribuido de grandes volumenes de datos, facilita enormemente el llevar un programa y los datos a un grupo de máquinas de tal forma que un conjunto de datos enorme pueda ser procesado en paralelo por estas.\u003c/p\u003e\n\u003cp\u003eSpark contiene ademas un módulo dedicado a Machine Leraning (MLib) el cual consta de varias implementaciones de algoritmos conocidos sobre este tema como DecisionTrees, KMeans, NaiveBayes, RecommenderSystems, LinearRegression entre otros. Esto facilita enromemente el trabajo pues las implementaciones de estos suelen ser bastante complejas, además de que estas implementaciones están ya diseñadas para trabajar optimamente dentro del paradigma distribuido de Spark.\u003c/p\u003e\n\u003ch3\u003eÁrboles de Decisión\u003c/h3\u003e\n\u003cp\u003eUna posible forma de afrontar este problema es entonces la técnica de árboles de decisión, la cual consiste en construir, naturalmente un árbol, cuyas ramas representan un atributo y valor particulares que según un análisis de ganancias y entropía pueden hacer que la \u003cstrong\u003edecisión\u003c/strong\u003e se incline a una \u003cstrong\u003eclase\u003c/strong\u003e u otra, visualmente se podría obtener en algo como:\u003cbr/\u003e\u003cimg src\u003d\"https://www.edureka.co/blog/wp-content/uploads/2015/01/tree2.png\" alt\u003d\"Alt\" title\u003d\"Decision\" /\u003e\u003c/p\u003e\n\u003cp\u003eNaturalmente este árbol puede representarse en sentencias If y Else por lo que se convierte en una herramienta muy útil para nuestro objetivo particular.\u003c/p\u003e\n\u003ch4\u003e¿Cómo funciona?\u003c/h4\u003e\n\u003cp\u003eComo se mencionó antes, se parte de un conjunto de datos historico que contiene una serie de atributos (features) y un resultado (label o clase) que nos permite extraer información estadística de que valores pueden influenciar mas a que cierta clase se de, esto se realiza usualmente mediante el cálculo de la entropía de las clases y la entropía de cada atributo para hallar seleccionar el de mayor pureza o aquel atributo que mejor explica la decisión.\u003c/p\u003e\n\u003cp\u003eVer: \u003ca href\u003d\"http://www.csun.edu/~twang/595DM/Slides/Week4.pdf\"\u003ehttp://www.csun.edu/~twang/595DM/Slides/Week4.pdf\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003ePara este ejemplo, utilizaremos un conjunto de datos de prueba con estructura similar a la anterior, con la diferencia de que por simplicidad, todos los valores seran numericos:\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511485508318_1339922325",
+      "id": "20171124-010508_1827700825",
+      "dateCreated": "Nov 24, 2017 1:05:08 AM",
+      "dateStarted": "Nov 24, 2017 3:33:07 PM",
+      "dateFinished": "Nov 24, 2017 3:33:07 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nfrom itertools import islice\n\nwith open(\u0027/zeppelin/datasets/creditos.csv\u0027, \u0027r\u0027) as archivo:\n    for line in islice(archivo, 10):\n        print line\n",
+      "user": "user1",
+      "dateUpdated": "Nov 24, 2017 2:17:25 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "1274,6994,1,23154,1\n\n6761,99902,3,86257,1\n\n5925,26250,2,49897,0\n\n5577,69034,0,65351,1\n\n7427,87932,1,31691,0\n\n5366,67421,2,16723,0\n\n2520,35881,2,55883,1\n\n6433,55274,4,29544,1\n\n8912,70206,4,21600,1\n\n1201,96980,4,96210,0\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511483679507_-1456055558",
+      "id": "20171124-003439_1342603246",
+      "dateCreated": "Nov 24, 2017 12:34:39 AM",
+      "dateStarted": "Nov 24, 2017 2:17:25 PM",
+      "dateFinished": "Nov 24, 2017 2:17:25 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\n\nfrom pyspark.mllib.regression import LabeledPoint\nfrom pyspark.mllib.tree import DecisionTree\nfrom numpy import array\n\n# Simplemente convertimos cada linea en su respectivo dato numerico que nos interesa para poder entrenar y usar el modelo\ndef convertirLineas(line):\n    fields \u003d line.split(\u0027,\u0027)\n    salario \u003d int(fields[0])\n    propiedades \u003d int(fields[1])\n    educacion \u003d int(fields[2])\n    deudas \u003d int(fields[3])\n    presta \u003d int(fields[4])\n    return LabeledPoint(presta, array([salario, propiedades, educacion, deudas]))\n\nrdd \u003d sc.textFile(\u0027/zeppelin/datasets/creditos.csv\u0027)\nrdd.take(5)\n\nentrenamiento, prueba \u003d rdd.randomSplit(weights\u003d[0.7, 0.3], seed\u003d1)\n\nentrenamiento \u003d entrenamiento.map(convertirLineas)\nvalidar \u003d prueba.map(convertirLineas)\nprueba \u003d validar.map(lambda x: x.features)\n\nmodel \u003d DecisionTree.trainClassifier(entrenamiento,\n                                    numClasses\u003d2, \n                                    categoricalFeaturesInfo\u003d{2:5}, \n                                    impurity\u003d\u0027entropy\u0027, \n                                    maxDepth\u003d5, \n                                    maxBins\u003d32)\n\n    ",
+      "user": "user1",
+      "dateUpdated": "Nov 24, 2017 3:00:28 PM",
+      "config": {
+        "colWidth": 6.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1511485709968_452948059",
+      "id": "20171124-010829_1334218696",
+      "dateCreated": "Nov 24, 2017 1:08:29 AM",
+      "dateStarted": "Nov 24, 2017 3:00:28 PM",
+      "dateFinished": "Nov 24, 2017 3:00:29 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\n\npredicciones \u003d model.predict(prueba)\nprint \u0027Debemos prestar:?\u0027\nresultados \u003d validar.zip(predicciones)\nfor resultado in resultados.collect():\n    print resultado\n\nerrorModelo \u003d resultados.map(lambda lp: (lp[0].label - lp[1]) ** 2).sum() / float(prueba.count())\n\nprint \u0027#\u0027 * 50\nprint \u0027\\nLa media de errores al cuadrado es: %f\u0027 % errorModelo\n",
+      "user": "user1",
+      "dateUpdated": "Nov 24, 2017 3:00:31 PM",
+      "config": {
+        "colWidth": 6.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Debemos prestar:?\n(LabeledPoint(1.0, [1274.0,6994.0,1.0,23154.0]), 1.0)\n(LabeledPoint(0.0, [5925.0,26250.0,2.0,49897.0]), 0.0)\n(LabeledPoint(0.0, [5366.0,67421.0,2.0,16723.0]), 0.0)\n(LabeledPoint(1.0, [6433.0,55274.0,4.0,29544.0]), 0.0)\n(LabeledPoint(1.0, [8912.0,70206.0,4.0,21600.0]), 0.0)\n(LabeledPoint(1.0, [7725.0,94930.0,2.0,98868.0]), 1.0)\n(LabeledPoint(1.0, [9857.0,93109.0,1.0,78017.0]), 0.0)\n(LabeledPoint(0.0, [8814.0,40368.0,1.0,74739.0]), 0.0)\n(LabeledPoint(0.0, [9923.0,59155.0,1.0,41322.0]), 0.0)\n(LabeledPoint(0.0, [8140.0,88512.0,3.0,45160.0]), 0.0)\n(LabeledPoint(0.0, [4775.0,55886.0,1.0,62173.0]), 0.0)\n(LabeledPoint(1.0, [906.0,19372.0,2.0,70916.0]), 1.0)\n(LabeledPoint(0.0, [3024.0,27780.0,3.0,74464.0]), 1.0)\n(LabeledPoint(1.0, [3838.0,58489.0,1.0,89779.0]), 0.0)\n(LabeledPoint(0.0, [7267.0,66172.0,3.0,30019.0]), 0.0)\n(LabeledPoint(1.0, [2832.0,41134.0,4.0,89175.0]), 0.0)\n(LabeledPoint(0.0, [3141.0,8125.0,4.0,51378.0]), 1.0)\n(LabeledPoint(0.0, [9749.0,23068.0,1.0,77068.0]), 0.0)\n(LabeledPoint(1.0, [7510.0,39516.0,3.0,57571.0]), 0.0)\n(LabeledPoint(1.0, [1180.0,97653.0,1.0,97668.0]), 0.0)\n(LabeledPoint(0.0, [4179.0,47158.0,0.0,48927.0]), 0.0)\n(LabeledPoint(0.0, [3190.0,98733.0,0.0,66318.0]), 0.0)\n(LabeledPoint(1.0, [4767.0,55876.0,1.0,61964.0]), 0.0)\n(LabeledPoint(1.0, [3588.0,31678.0,2.0,85974.0]), 1.0)\n(LabeledPoint(1.0, [5824.0,56194.0,2.0,81715.0]), 1.0)\n(LabeledPoint(0.0, [6913.0,1128.0,1.0,25241.0]), 0.0)\n(LabeledPoint(0.0, [3773.0,46598.0,3.0,10557.0]), 1.0)\n(LabeledPoint(0.0, [985.0,44803.0,0.0,11913.0]), 1.0)\n(LabeledPoint(1.0, [4364.0,82778.0,2.0,69708.0]), 1.0)\n(LabeledPoint(0.0, [1586.0,959.0,3.0,94681.0]), 1.0)\n(LabeledPoint(0.0, [8369.0,33764.0,0.0,98711.0]), 0.0)\n(LabeledPoint(0.0, [8654.0,60207.0,0.0,94721.0]), 1.0)\n(LabeledPoint(0.0, [9599.0,62820.0,2.0,48363.0]), 0.0)\n(LabeledPoint(1.0, [8220.0,22424.0,4.0,41127.0]), 0.0)\n(LabeledPoint(0.0, [3880.0,78270.0,1.0,90821.0]), 0.0)\n(LabeledPoint(0.0, [638.0,61458.0,1.0,69892.0]), 0.0)\n##################################################\n\nLa media de errores al cuadrado es: 0.416667\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511528193369_-1898915958",
+      "id": "20171124-125633_1747487748",
+      "dateCreated": "Nov 24, 2017 12:56:33 PM",
+      "dateStarted": "Nov 24, 2017 3:00:31 PM",
+      "dateFinished": "Nov 24, 2017 3:00:31 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\n\nprint(\u0027Modelo de clasificacion obtenido:\u0027)\nprint(model.toDebugString())\n",
+      "user": "user1",
+      "dateUpdated": "Nov 24, 2017 3:07:51 PM",
+      "config": {
+        "colWidth": 7.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Modelo de clasificacion obtenido:\nDecisionTreeModel classifier of depth 5 with 19 nodes\n  If (feature 3 \u003c\u003d 12056.0)\n   Predict: 1.0\n  Else (feature 3 \u003e 12056.0)\n   If (feature 0 \u003c\u003d 3656.0)\n    If (feature 1 \u003c\u003d 38194.0)\n     Predict: 1.0\n    Else (feature 1 \u003e 38194.0)\n     If (feature 3 \u003c\u003d 24325.0)\n      Predict: 1.0\n     Else (feature 3 \u003e 24325.0)\n      If (feature 0 \u003c\u003d 3576.0)\n       Predict: 0.0\n      Else (feature 0 \u003e 3576.0)\n       Predict: 1.0\n   Else (feature 0 \u003e 3656.0)\n    If (feature 2 in {1.0})\n     Predict: 0.0\n    Else (feature 2 not in {1.0})\n     If (feature 3 \u003c\u003d 55883.0)\n      If (feature 1 \u003c\u003d 78764.0)\n       Predict: 0.0\n      Else (feature 1 \u003e 78764.0)\n       Predict: 0.0\n     Else (feature 3 \u003e 55883.0)\n      If (feature 1 \u003c\u003d 45343.0)\n       Predict: 0.0\n      Else (feature 1 \u003e 45343.0)\n       Predict: 1.0\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511486320473_1916822390",
+      "id": "20171124-011840_130986200",
+      "dateCreated": "Nov 24, 2017 1:18:40 AM",
+      "dateStarted": "Nov 24, 2017 3:03:44 PM",
+      "dateFinished": "Nov 24, 2017 3:03:48 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Reutilizar el modelo\nPuedo guardar el modelo para utilizarlo luego en predicciones posteriores:\n",
+      "user": "user1",
+      "dateUpdated": "Nov 24, 2017 3:14:53 PM",
+      "config": {
+        "colWidth": 5.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eReutilizar el modelo\u003c/h3\u003e\n\u003cp\u003ePuedo guardar el modelo para utilizarlo luego en predicciones posteriores:\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511536078572_742277899",
+      "id": "20171124-150758_1011834176",
+      "dateCreated": "Nov 24, 2017 3:07:58 PM",
+      "dateStarted": "Nov 24, 2017 3:14:53 PM",
+      "dateFinished": "Nov 24, 2017 3:14:53 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n\nrm -Rf /zeppelin/models/creditos\n",
+      "user": "user1",
+      "dateUpdated": "Nov 24, 2017 3:16:03 PM",
+      "config": {
+        "colWidth": 5.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1511536187655_-430482721",
+      "id": "20171124-150947_831967698",
+      "dateCreated": "Nov 24, 2017 3:09:47 PM",
+      "dateStarted": "Nov 24, 2017 3:16:03 PM",
+      "dateFinished": "Nov 24, 2017 3:16:03 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\n\nfrom pyspark.mllib.tree import DecisionTreeModel\n\nmodel.save(sc, \u0027/zeppelin/models/creditos\u0027)\nloadedModel \u003d DecisionTreeModel.load(sc, \u0027/zeppelin/models/creditos\u0027)\n\nnueva_prediccion \u003d loadedModel.predict([[1274.0,6994.0,1.0,23154.0]])\nprint \u0027Le podemos prestar? %r \u0027 % nueva_prediccion",
+      "user": "user1",
+      "dateUpdated": "Nov 24, 2017 3:16:04 PM",
+      "config": {
+        "colWidth": 5.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Le podemos prestar? 1.0 \n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511527745601_1589806467",
+      "id": "20171124-124905_867010342",
+      "dateCreated": "Nov 24, 2017 12:49:05 PM",
+      "dateStarted": "Nov 24, 2017 3:16:04 PM",
+      "dateFinished": "Nov 24, 2017 3:16:05 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\n",
+      "user": "user1",
+      "dateUpdated": "Nov 24, 2017 3:15:00 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1511536500977_2087155906",
+      "id": "20171124-151500_2047497324",
+      "dateCreated": "Nov 24, 2017 3:15:00 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "/PSL_DS_Training/DecisionTrees",
+  "id": "2CZQHNNTZ",
+  "angularObjects": {
+    "2CYTRGJ4C:shared_process": [],
+    "2CY4ANXKH:shared_process": [],
+    "2D1FAAA2W:shared_process": [],
+    "2D18CBQ4R:shared_process": [],
+    "2CYWNE1SK:shared_process": [],
+    "2CZ53PD9E:shared_process": [],
+    "2CXMSYMKE:shared_process": [],
+    "2CYXNMRRW:shared_process": [],
+    "2CYC381B1:shared_process": [],
+    "2CYUNTTZY:shared_process": [],
+    "2CYM4X6U4:shared_process": [],
+    "2CXY1FUQK:shared_process": [],
+    "2CY6ZF1J1:shared_process": [],
+    "2CX82UF88:shared_process": [],
+    "2CXNTVNX9:shared_process": [],
+    "2CZHUJN1A:shared_process": [],
+    "2CXFBX3H1::2CZQHNNTZ": [],
+    "2CZSSYREP:shared_process": [],
+    "2CYABBU1U:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

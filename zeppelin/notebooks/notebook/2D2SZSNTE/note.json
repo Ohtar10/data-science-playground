@@ -1,0 +1,75 @@
+{
+  "paragraphs": [
+    {
+      "text": "%spark.pyspark\n\nfrom pyspark.mllib.tree import DecisionTreeModel\n\ndef predict_score_group(*args):\n    return \u0027mierda\u0027\n    \nspark.udf.register(\u0027predict_score_group\u0027, predict_score_group)",
+      "user": "admin",
+      "dateUpdated": "Nov 26, 2017 1:06:51 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1511658170246_-746176320",
+      "id": "20171126-010250_1469381626",
+      "dateCreated": "Nov 26, 2017 1:02:50 AM",
+      "dateStarted": "Nov 26, 2017 1:06:51 AM",
+      "dateFinished": "Nov 26, 2017 1:06:51 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\n",
+      "user": "admin",
+      "dateUpdated": "Nov 26, 2017 1:04:55 AM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1511658295828_-1171523069",
+      "id": "20171126-010455_695566195",
+      "dateCreated": "Nov 26, 2017 1:04:55 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "PSL_DS_Training/Uso_Decision",
+  "id": "2D2SZSNTE",
+  "angularObjects": {
+    "2CYTRGJ4C:shared_process": [],
+    "2CY4ANXKH:shared_process": [],
+    "2D1FAAA2W:shared_process": [],
+    "2D18CBQ4R:shared_process": [],
+    "2CYWNE1SK:shared_process": [],
+    "2CZ53PD9E:shared_process": [],
+    "2CXMSYMKE:shared_process": [],
+    "2CYXNMRRW:shared_process": [],
+    "2CYC381B1:shared_process": [],
+    "2CYUNTTZY:shared_process": [],
+    "2CYM4X6U4:shared_process": [],
+    "2CXY1FUQK:shared_process": [],
+    "2CY6ZF1J1:shared_process": [],
+    "2CX82UF88:shared_process": [],
+    "2CXNTVNX9:shared_process": [],
+    "2CZHUJN1A:shared_process": [],
+    "2CZSSYREP:shared_process": [],
+    "2CYABBU1U:shared_process": [],
+    "2CXFBX3H1::2D2SZSNTE": []
+  },
+  "config": {},
+  "info": {}
+}

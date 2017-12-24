@@ -1,0 +1,826 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n# Introducción a Python\n![Python](http://i0.wp.com/itpings.com/wp-content/uploads/2014/08/Python.png?fit\u003d256%2C256 \"Python\")\nCreado por Guido van Rossum, Python es un lenguage de alto nivel de propósito general que ademas tiene capacidades para programación funcional, es ampliamente usado en multiples campos de las ciencias de la computación entre ellos la ciencia de datos debido a que es fácil de entender, ligero en la sintáxis y en cierto modo bastante expresivo; es posible lograr grandes cosas con solo pocas lineas de código, adicional a esto al ser un lenguaje interpretado, solo requiere los scripts o comandos a ejecutar, no require compilación ni empaquedado, lo cual lo hace atractivo para crear programas rapidamente.\n\nAdemás, actualmente hay un fuerte soporte a traves de librerias de terceros para el análisis de datos, esto facilita enormemente su uso para la ciencia de datos.\n\nEste notebook, servira como referencia rápida a algunas características del lenguaje que serán usadas durante el taller de ciencia de datos.\n",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 1:45:11 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eIntroducción a Python\u003c/h1\u003e\n\u003cp\u003e\u003cimg src\u003d\"http://i0.wp.com/itpings.com/wp-content/uploads/2014/08/Python.png?fit\u003d256%2C256\" alt\u003d\"Python\" title\u003d\"Python\" /\u003e\u003cbr/\u003eCreado por Guido van Rossum, Python es un lenguage de alto nivel de propósito general que ademas tiene capacidades para programación funcional, es ampliamente usado en multiples campos de las ciencias de la computación entre ellos la ciencia de datos debido a que es fácil de entender, ligero en la sintáxis y en cierto modo bastante expresivo; es posible lograr grandes cosas con solo pocas lineas de código, adicional a esto al ser un lenguaje interpretado, solo requiere los scripts o comandos a ejecutar, no require compilación ni empaquedado, lo cual lo hace atractivo para crear programas rapidamente.\u003c/p\u003e\n\u003cp\u003eAdemás, actualmente hay un fuerte soporte a traves de librerias de terceros para el análisis de datos, esto facilita enormemente su uso para la ciencia de datos.\u003c/p\u003e\n\u003cp\u003eEste notebook, servira como referencia rápida a algunas características del lenguaje que serán usadas durante el taller de ciencia de datos.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511443673597_-1214368295",
+      "id": "20171123-132753_1747758333",
+      "dateCreated": "Nov 23, 2017 1:27:53 PM",
+      "dateStarted": "Nov 23, 2017 1:42:46 PM",
+      "dateFinished": "Nov 23, 2017 1:42:46 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## Variables y tipos\nComo cualquier otro lenguage, hay manejo de variables, pero la particularidad con python es que no hay que declarar explicitamente el tipo pues este es inferido al momento de correr el programa y que tampoco hay que adicionar ninguna palabra al hacerlo:\n",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 1:45:05 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eVariables y tipos\u003c/h2\u003e\n\u003cp\u003eComo cualquier otro lenguage, hay manejo de variables, pero la particularidad con python es que no hay que declarar explicitamente el tipo pues este es inferido al momento de correr el programa y que tampoco hay que adicionar ninguna palabra al hacerlo:\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511443990411_1467222625",
+      "id": "20171123-133310_1795234723",
+      "dateCreated": "Nov 23, 2017 1:33:10 PM",
+      "dateStarted": "Nov 23, 2017 1:44:54 PM",
+      "dateFinished": "Nov 23, 2017 1:44:54 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\nvar1 \u003d 10\nvar2 \u003d 12.0\nvar3 \u003d \"Hello World\"\nvar4 \u003d True\n\nprint \" var1: %d \\n var2: %f \\n var3: %s \\n var4: %r\" % (var1, var2, var3, var4)\nprint \"#\" * 20\nprint \" var1 es: %s\" % type(var1)\nprint \" var2 es: %s\" % type(var2)\nprint \" var3 es: %s\" % type(var3)\nprint \" var4 es: %s\" % type(var4)\n",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 1:51:06 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": " var1: 10 \n var2: 12.000000 \n var3: Hello World \n var4: True\n####################\n var1 es: \u003ctype \u0027int\u0027\u003e\n var2 es: \u003ctype \u0027float\u0027\u003e\n var3 es: \u003ctype \u0027str\u0027\u003e\n var4 es: \u003ctype \u0027bool\u0027\u003e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511444694338_-1103071882",
+      "id": "20171123-134454_270785880",
+      "dateCreated": "Nov 23, 2017 1:44:54 PM",
+      "dateStarted": "Nov 23, 2017 1:51:06 PM",
+      "dateFinished": "Nov 23, 2017 1:51:06 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## Los espacios son importantes\nEn Python, no hay llaves ({}) o punto y comas (;) para distinguir bloques y sentencias, la forma de distinguirlos es mediante los espacios y el sangrado (indentation) entre las lineas de código.\n\nPor ejemplo, si queremos definir una función, utilizaremos la palabra reservada **def** seguido del nombre, luego dos puntos (:) y a partir de la segunda línea, con un sangrado dado por espacios o tabulaciones se define el cuerpo del método:",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 1:57:54 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eLos espacios son importantes\u003c/h2\u003e\n\u003cp\u003eEn Python, no hay llaves ({}) o punto y comas (;) para distinguir bloques y sentencias, la forma de distinguirlos es mediante los espacios y el sangrado (indentation) entre las lineas de código.\u003c/p\u003e\n\u003cp\u003ePor ejemplo, si queremos definir una función, utilizaremos la palabra reservada \u003cstrong\u003edef\u003c/strong\u003e seguido del nombre, luego dos puntos (:) y a partir de la segunda línea, con un sangrado dado por espacios o tabulaciones se define el cuerpo del método:\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511444814965_-1521370034",
+      "id": "20171123-134654_1077910995",
+      "dateCreated": "Nov 23, 2017 1:46:54 PM",
+      "dateStarted": "Nov 23, 2017 1:57:54 PM",
+      "dateFinished": "Nov 23, 2017 1:57:54 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\ndef saludar(nombre):\n    #Este sangrado indica que este es el cuerpo del método\n    print \"Hola %s\" % nombre\n#Nótese que esta linea regresa al sangrado anterior lo cual indica que ya no hace parte del cuerpo del método\nsaludar(\u0027Pepe\u0027)\n",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 2:03:19 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Hola Pepe\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511445331770_1700467994",
+      "id": "20171123-135531_2003331390",
+      "dateCreated": "Nov 23, 2017 1:55:31 PM",
+      "dateStarted": "Nov 23, 2017 2:03:19 PM",
+      "dateFinished": "Nov 23, 2017 2:03:19 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## Listas, Conjuntos y Diccionarios\nEn cuanto a colecciones, python maneja:\n\n* Listas (List) las cuales siguen un orden especifico, admiten duplicados y son mutables.\n* Conjuntos (Set) los cuales no tienen un orden especifico y no admiten duplicados.\n* Túplas (tuple) las cuales son inmutables, tienen un orden especifico y admiten duplicados.\n* Diccionarios (Dict) que en otros lenguages son conocidos como mapas, es decir colecciones de tipo llave valor, las llaves no pueden ser duplicadas\n \n",
+      "user": "user1",
+      "dateUpdated": "Nov 24, 2017 4:08:15 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eListas, Conjuntos y Diccionarios\u003c/h2\u003e\n\u003cp\u003eEn cuanto a colecciones, python maneja:\u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003eListas (List) las cuales siguen un orden especifico, admiten duplicados y son mutables.\u003c/li\u003e\n  \u003cli\u003eConjuntos (Set) los cuales no tienen un orden especifico y no admiten duplicados.\u003c/li\u003e\n  \u003cli\u003eTúplas (tuple) las cuales son inmutables, tienen un orden especifico y admiten duplicados.\u003c/li\u003e\n  \u003cli\u003eDiccionarios (Dict) que en otros lenguages son conocidos como mapas, es decir colecciones de tipo llave valor, las llaves no pueden ser duplicadas\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511445567510_997084063",
+      "id": "20171123-135927_875615775",
+      "dateCreated": "Nov 23, 2017 1:59:27 PM",
+      "dateStarted": "Nov 24, 2017 4:08:15 PM",
+      "dateFinished": "Nov 24, 2017 4:08:15 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\n# Las listas se inicializan entre corchetes, pueden contener cualquier elemento, no necesariamente tienen que ser del mismo tipo\nlista \u003d [1, 2, 3, \u0027Hola\u0027, \u0027Mundo\u0027]\n# Los conjuntos se inicializan invocando al método set() dando como argumento una lista\nconjunto \u003d set([1, 2, 3, \u0027Hola\u0027, \u0027Mundo\u0027])\n# Las tuplas se inicializan dando los valores entre parentesis\ntupla \u003d (1, 2, 3, \u0027Hola\u0027, \u0027Mundo\u0027)\n# Los diccionarios se inicializan entre llaves y cada llave esta al lado izquierdo, seguido de dos puntos : y luego el valor que le corresponde,\ndiccionarios \u003d {\u0027hello\u0027: 10, \u0027world\u0027: 15}\n",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 3:42:49 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1511451094982_1743402743",
+      "id": "20171123-153134_412259020",
+      "dateCreated": "Nov 23, 2017 3:31:34 PM",
+      "dateStarted": "Nov 23, 2017 3:42:49 PM",
+      "dateFinished": "Nov 23, 2017 3:42:49 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nPodemos acceder a los elementos de una lista a través de su índice posicional\n",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 3:43:30 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003ePodemos acceder a los elementos de una lista a través de su índice posicional\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511451769339_927901996",
+      "id": "20171123-154249_371432621",
+      "dateCreated": "Nov 23, 2017 3:42:49 PM",
+      "dateStarted": "Nov 23, 2017 3:43:30 PM",
+      "dateFinished": "Nov 23, 2017 3:43:30 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\nprint \"El elemento en la posición 2 es: %s\" % lista[2]\nprint \"E incluso accederlas de atrás a adelante, entonces el elemento en la posición -2 es: %s\" % lista[-2]\nprint \"También podemos obtener porciones (slices) de una lista si especificamos la posición de origen y la posición de fin\"\nprint \"Entonces, la sub lista entre las posiciones 1 y 4 es: %s\" % lista[1:4]\n",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 3:48:14 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "El elemento en la posición 2 es: 3\nE incluso accederlas de atrás a adelante, entonces el elemento en la posición -2 es: Hola\nTambién podemos obtener porciones (slices) de una lista si especificamos la posición de origen y la posición de fin\nEntonces, la sub lista entre las posiciones 1 y 4 es: [2, 3, \u0027Hola\u0027]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511451810214_1403279782",
+      "id": "20171123-154330_309317147",
+      "dateCreated": "Nov 23, 2017 3:43:30 PM",
+      "dateStarted": "Nov 23, 2017 3:48:14 PM",
+      "dateFinished": "Nov 23, 2017 3:48:14 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nPara los sets, como son conjuntos no ordenados, solo se podrían iterar.\nPara las tuplas, tambien es posible acceder a través de su índice\n",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 3:52:27 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003ePara los sets, como son conjuntos no ordenados, solo se podrían iterar.\u003cbr/\u003ePara las tuplas, tambien es posible acceder a través de su índice\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511451853228_489393875",
+      "id": "20171123-154413_1578976562",
+      "dateCreated": "Nov 23, 2017 3:44:13 PM",
+      "dateStarted": "Nov 23, 2017 3:52:27 PM",
+      "dateFinished": "Nov 23, 2017 3:52:27 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nprint \"El elemento 4 de la tupla es: %s\" % tupla[4]\n",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 3:53:31 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "El elemento 4 de la tupla es: Mundo\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511452347496_1112203297",
+      "id": "20171123-155227_397451773",
+      "dateCreated": "Nov 23, 2017 3:52:27 PM",
+      "dateStarted": "Nov 23, 2017 3:53:31 PM",
+      "dateFinished": "Nov 23, 2017 3:53:31 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nPara los diccionarios, se utiliza la llave para acceder al valor:\n",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 3:54:32 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003ePara los diccionarios, se utiliza la llave para acceder al valor:\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511452411384_-76762749",
+      "id": "20171123-155331_870044004",
+      "dateCreated": "Nov 23, 2017 3:53:31 PM",
+      "dateStarted": "Nov 23, 2017 3:54:32 PM",
+      "dateFinished": "Nov 23, 2017 3:54:32 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\nprint \"El valor de la llave \u0027hello\u0027 es: %s\" % diccionarios[\u0027hello\u0027]\n",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 3:55:17 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "El valor de la llave \u0027hello\u0027 es: 10\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511452472023_-86103992",
+      "id": "20171123-155432_335045658",
+      "dateCreated": "Nov 23, 2017 3:54:32 PM",
+      "dateStarted": "Nov 23, 2017 3:55:17 PM",
+      "dateFinished": "Nov 23, 2017 3:55:17 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## Ciclos\nPython ofrece dos tipos de ciclos, for loops y while loops, siendo el primero el mas utilizado y el que servira en la gran mayoria de los casos\n",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 3:56:35 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eCiclos\u003c/h2\u003e\n\u003cp\u003ePython ofrece dos tipos de ciclos, for loops y while loops, siendo el primero el mas utilizado y el que servira en la gran mayoria de los casos\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511452507335_776164266",
+      "id": "20171123-155507_1093824487",
+      "dateCreated": "Nov 23, 2017 3:55:07 PM",
+      "dateStarted": "Nov 23, 2017 3:56:35 PM",
+      "dateFinished": "Nov 23, 2017 3:56:35 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\nlista \u003d [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n\nfor i in lista:\n    print i,\n    \nprint \u0027\\n\u0027\nprint \u0027#\u0027 * 20\n\nn \u003d 10\nwhile n \u003e 0:\n    print n,\n    n -\u003d1\n\n",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 4:05:57 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "1 2 3 4 5 6 7 8 9 10 \n\n####################\n10 9 8 7 6 5 4 3 2 1"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511452595424_1885885718",
+      "id": "20171123-155635_1718460095",
+      "dateCreated": "Nov 23, 2017 3:56:35 PM",
+      "dateStarted": "Nov 23, 2017 4:05:57 PM",
+      "dateFinished": "Nov 23, 2017 4:05:57 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## Funciones\nComo ya observamos, la declaración de una función es de una forma muy particular, ahora en cuanto a lo que puede recibir como argumento, puede recibir cualquier cosa, incluso otra función:\n",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 4:08:34 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eFunciones\u003c/h2\u003e\n\u003cp\u003eComo ya observamos, la declaración de una función es de una forma muy particular, ahora en cuanto a lo que puede recibir como argumento, puede recibir cualquier cosa, incluso otra función:\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511452707062_-1898719002",
+      "id": "20171123-155827_167296841",
+      "dateCreated": "Nov 23, 2017 3:58:27 PM",
+      "dateStarted": "Nov 23, 2017 4:08:34 PM",
+      "dateFinished": "Nov 23, 2017 4:08:34 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\ndef aplicar(f, x):\n    return f(x)\n\ndef cuadrado(x):\n    return x * x\n\nprint \u0027Si aplicamos cuadrado a 4, obtendremos: %d\u0027 % aplicar(cuadrado, 4)\n",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 4:10:51 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": " Si aplicamos cuadrado a 4, obtendremos: 16\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511453314071_147068045",
+      "id": "20171123-160834_344928044",
+      "dateCreated": "Nov 23, 2017 4:08:34 PM",
+      "dateStarted": "Nov 23, 2017 4:10:51 PM",
+      "dateFinished": "Nov 23, 2017 4:10:51 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nEsto puede reducirse incluso mas con ayuda de expresiones anónimas:\n",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 4:12:12 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eEsto puede reducirse incluso mas con ayuda de expresiones anónimas:\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511453443307_-1601848858",
+      "id": "20171123-161043_547595112",
+      "dateCreated": "Nov 23, 2017 4:10:43 PM",
+      "dateStarted": "Nov 23, 2017 4:12:12 PM",
+      "dateFinished": "Nov 23, 2017 4:12:12 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\nprint \u0027Si aplicamos cuadrado a 5, obtendremos: %d\u0027 % aplicar(lambda x: x*x, 5)\n",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 4:15:15 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Si aplicamos cuadrado a 5, obtendremos: 25\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511453532022_-1941274009",
+      "id": "20171123-161212_902142920",
+      "dateCreated": "Nov 23, 2017 4:12:12 PM",
+      "dateStarted": "Nov 23, 2017 4:15:15 PM",
+      "dateFinished": "Nov 23, 2017 4:15:15 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## Importar modulos\nMuchos problemas de computación ya han sido resueltos o se han creado herramientas para facilitar el resolverlos, estas soluciones se distribuyen como librerias adicionales que podemos comodamente importar en nuestros scripts para ayudarnos.\n",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 4:21:26 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eImportar modulos\u003c/h2\u003e\n\u003cp\u003eMuchos problemas de computación ya han sido resueltos o se han creado herramientas para facilitar el resolverlos, estas soluciones se distribuyen como librerias adicionales que podemos comodamente importar en nuestros scripts para ayudarnos.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511453715810_-1693436065",
+      "id": "20171123-161515_933959229",
+      "dateCreated": "Nov 23, 2017 4:15:15 PM",
+      "dateStarted": "Nov 23, 2017 4:21:26 PM",
+      "dateFinished": "Nov 23, 2017 4:21:26 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n# La libreria numpy ofrece muchas funcionalidades utiles para la manipulacion de colecciones y recopilaciones estadísticas\n# Podemos importarla con el comando \u0027import\u0027 e incluso podemos darle un alias para usarla con un nombre mas corto\nimport numpy as np\n\nA \u003d np.random.normal(25.0, 5.0, 10)\nprint A",
+      "user": "user1",
+      "dateUpdated": "Nov 23, 2017 4:24:21 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[ 28.16073504  19.02036558  19.79406342  20.15853068  15.20857276\n  17.24765489  36.60517946  20.98267845  24.27149626  27.45590891]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511454086678_816049503",
+      "id": "20171123-162126_1023779571",
+      "dateCreated": "Nov 23, 2017 4:21:26 PM",
+      "dateStarted": "Nov 23, 2017 4:24:21 PM",
+      "dateFinished": "Nov 23, 2017 4:24:21 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n",
+      "user": "user1",
+      "dateUpdated": "Nov 24, 2017 4:16:26 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1511454261429_888038063",
+      "id": "20171123-162421_199004067",
+      "dateCreated": "Nov 23, 2017 4:24:21 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "PSL_DS_Training/python",
+  "id": "2CYV5KGVY",
+  "angularObjects": {
+    "2CYTRGJ4C:shared_process": [],
+    "2CY4ANXKH:shared_process": [],
+    "2D1FAAA2W:shared_process": [],
+    "2D18CBQ4R:shared_process": [],
+    "2CXFBX3H1::2CYV5KGVY": [],
+    "2CYWNE1SK:shared_process": [],
+    "2CZ53PD9E:shared_process": [],
+    "2CXMSYMKE:shared_process": [],
+    "2CYXNMRRW:shared_process": [],
+    "2CYC381B1:shared_process": [],
+    "2CYUNTTZY:shared_process": [],
+    "2CYM4X6U4:shared_process": [],
+    "2CXY1FUQK:shared_process": [],
+    "2CY6ZF1J1:shared_process": [],
+    "2CX82UF88:shared_process": [],
+    "2CXNTVNX9:shared_process": [],
+    "2CZHUJN1A:shared_process": [],
+    "2CZSSYREP:shared_process": [],
+    "2CYABBU1U:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

@@ -1,0 +1,301 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n# Percentiles\nThe percentiles are a way to \"devide\" or classify the data in a way we can tell for instance, x% of the dataset is over or under a certain amount, this amount for instance, if we are referring to the 50th percentile, this is just the median, so suppose you are analyzing an income dataset, and the mean happens to be 50000, one way we could view this is that there is some x% of people earning more than 50000 and/or less than x%, so suppose for instance at 98% there is a value of 150000, we have 2 percentile units left to the right which means, people who earns more than the cited quantity.",
+      "user": "user1",
+      "dateUpdated": "Nov 20, 2017 6:01:24 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003ePercentiles\u003c/h1\u003e\n\u003cp\u003eThe percentiles are a way to \u0026ldquo;devide\u0026rdquo; or classify the data in a way we can tell for instance, x% of the dataset is over or under a certain amount, this amount for instance, if we are referring to the 50th percentile, this is just the median, so suppose you are analyzing an income dataset, and the mean happens to be 50000, one way we could view this is that there is some x% of people earning more than 50000 and/or less than x%, so suppose for instance at 98% there is a value of 150000, we have 2 percentile units left to the right which means, people who earns more than the cited quantity.\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511200283232_-912378631",
+      "id": "20171120-175123_1585967260",
+      "dateCreated": "Nov 20, 2017 5:51:23 PM",
+      "dateStarted": "Nov 20, 2017 6:01:24 PM",
+      "dateFinished": "Nov 20, 2017 6:01:24 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nimport numpy as np\nimport matplotlib.pyplot as plt\n# Generate random values\n# with a mean of 0, and a standard deviation of 0.5, generate 10000 values\nvals \u003d np.random.normal(0, 0.5, 10000)\n# Generate an histogram with this data and place the values in 50 buckets\nplt.hist(vals, 50)\nplt.show()\n",
+      "user": "user1",
+      "dateUpdated": "Nov 20, 2017 5:57:59 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv style\u003d\u0027width:auto;height:auto\u0027\u003e\u003cimg src\u003ddata:image/png;base64,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\u003d style\u003d\u0027width\u003dauto;height:auto\u0027\u003e\u003cdiv\u003e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511200570647_-191917964",
+      "id": "20171120-175610_264500521",
+      "dateCreated": "Nov 20, 2017 5:56:10 PM",
+      "dateStarted": "Nov 20, 2017 5:57:59 PM",
+      "dateFinished": "Nov 20, 2017 5:58:02 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Now invoke the 50 percentile which it\u0027s just another word for the median\n",
+      "user": "user1",
+      "dateUpdated": "Nov 20, 2017 5:59:25 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eNow invoke the 50 percentile which it\u0026rsquo;s just another word for the median\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511200666171_-2138257025",
+      "id": "20171120-175746_1419234281",
+      "dateCreated": "Nov 20, 2017 5:57:46 PM",
+      "dateStarted": "Nov 20, 2017 5:59:25 PM",
+      "dateFinished": "Nov 20, 2017 5:59:25 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\npercentile \u003d np.percentile(vals, 50)\nmedian \u003d np.median(vals)\n\nprint \"The 50th percentile is %f and the median is %f \\nNotice they are the same\" % (percentile, median)\n",
+      "user": "user1",
+      "dateUpdated": "Nov 20, 2017 6:01:55 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "The 50th percentile is 0.001682 and the median is 0.001682 \nNotice they are the same\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511200765723_1596085151",
+      "id": "20171120-175925_180445000",
+      "dateCreated": "Nov 20, 2017 5:59:25 PM",
+      "dateStarted": "Nov 20, 2017 6:01:55 PM",
+      "dateFinished": "Nov 20, 2017 6:01:55 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\n# Now get the 90th percentile which means that 90% of the values is less than the resulting value\npercentile90 \u003d np.percentile(vals, 90)\n\nprint \"90%% of the values are less than %f\" % percentile90",
+      "user": "user1",
+      "dateUpdated": "Nov 20, 2017 6:05:06 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "90% of the values are less than 0.636803\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511200832949_2063847869",
+      "id": "20171120-180032_1830867295",
+      "dateCreated": "Nov 20, 2017 6:00:32 PM",
+      "dateStarted": "Nov 20, 2017 6:05:06 PM",
+      "dateFinished": "Nov 20, 2017 6:05:06 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\n# At the same time, if we get the 20th percentile we get that 20% of the values are less than a certain value\npercentile20 \u003d np.percentile(vals, 20)\nprint \"20%% of the values are less than %f\" % percentile20\n",
+      "user": "user1",
+      "dateUpdated": "Nov 20, 2017 6:07:38 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "20% of the values are less than -0.418863\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511201076639_1219276416",
+      "id": "20171120-180436_2129854195",
+      "dateCreated": "Nov 20, 2017 6:04:36 PM",
+      "dateStarted": "Nov 20, 2017 6:07:38 PM",
+      "dateFinished": "Nov 20, 2017 6:07:38 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\nnp.max(vals)",
+      "user": "user1",
+      "dateUpdated": "Nov 20, 2017 6:08:06 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "2.206431655762005\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511201250491_1243159852",
+      "id": "20171120-180730_647795581",
+      "dateCreated": "Nov 20, 2017 6:07:30 PM",
+      "dateStarted": "Nov 20, 2017 6:08:06 PM",
+      "dateFinished": "Nov 20, 2017 6:08:06 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n",
+      "user": "user1",
+      "dateUpdated": "Nov 20, 2017 6:08:06 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1511201286068_202475373",
+      "id": "20171120-180806_1061939840",
+      "dateCreated": "Nov 20, 2017 6:08:06 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Playground/percentiles",
+  "id": "2D1N55MEC",
+  "angularObjects": {
+    "2CYTRGJ4C:shared_process": [],
+    "2CY4ANXKH:shared_process": [],
+    "2D1FAAA2W:shared_process": [],
+    "2D18CBQ4R:shared_process": [],
+    "2CYWNE1SK:shared_process": [],
+    "2CZ53PD9E:shared_process": [],
+    "2CXMSYMKE:shared_process": [],
+    "2CYXNMRRW:shared_process": [],
+    "2CYC381B1:shared_process": [],
+    "2CYUNTTZY:shared_process": [],
+    "2CYM4X6U4:shared_process": [],
+    "2CXY1FUQK:shared_process": [],
+    "2CY6ZF1J1:shared_process": [],
+    "2CX82UF88:shared_process": [],
+    "2CXNTVNX9:shared_process": [],
+    "2CXFBX3H1::2D1N55MEC": [],
+    "2CZHUJN1A:shared_process": [],
+    "2CZSSYREP:shared_process": [],
+    "2CYABBU1U:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}
