@@ -1,0 +1,563 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n# Conditional Probability\nBelow is some code to create som fake data on how much stiff people purcvhase given their age range.\n\nIt generates 100000 random \"people\" and randomly assigns them as being in their 20\u0027s, 30\u0027s ... to 70\u0027s\n\nIt then assigns a lower probability for youn people to buy stuff.\n\nIn the end, we have Python dictionaries:\n\n\"totals\" contains the total number of people in each age group. \"purchases\" contains the total number of things purchased by people in each age group. The grand total of purchases is in totalPurchases and we know the total number of people is 100000\n\nLet\u0027s run it and have a look",
+      "user": "anonymous",
+      "dateUpdated": "Nov 22, 2017 12:49:58 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eConditional Probability\u003c/h1\u003e\n\u003cp\u003eBelow is some code to create som fake data on how much stiff people purcvhase given their age range.\u003c/p\u003e\n\u003cp\u003eIt generates 100000 random \u0026ldquo;people\u0026rdquo; and randomly assigns them as being in their 20\u0026rsquo;s, 30\u0026rsquo;s \u0026hellip; to 70\u0026rsquo;s\u003c/p\u003e\n\u003cp\u003eIt then assigns a lower probability for youn people to buy stuff.\u003c/p\u003e\n\u003cp\u003eIn the end, we have Python dictionaries:\u003c/p\u003e\n\u003cp\u003e\u0026ldquo;totals\u0026rdquo; contains the total number of people in each age group. \u0026ldquo;purchases\u0026rdquo; contains the total number of things purchased by people in each age group. The grand total of purchases is in totalPurchases and we know the total number of people is 100000\u003c/p\u003e\n\u003cp\u003eLet\u0026rsquo;s run it and have a look\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511311347746_1923611572",
+      "id": "20171122-004227_1192562539",
+      "dateCreated": "Nov 22, 2017 12:42:27 AM",
+      "dateStarted": "Nov 22, 2017 12:49:58 AM",
+      "dateFinished": "Nov 22, 2017 12:49:58 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\nfrom numpy import random\nrandom.seed(0)\n\n#This will be the total amount of people of a certain age\ntotals \u003d {20:0, 30:0, 40:0, 50:0, 60:0, 70:0}\n#This is the amount of purchases made by people of a certain age\npurchases \u003d {20:0, 30:0, 40:0, 50:0, 60:0, 70:0}\ntotalPurchases \u003d 0\n\nfor _ in range(100000):\n    ageDecade \u003d random.choice(list(range(20, 80, 10)))\n    purchaseProbability \u003d float(ageDecade) / 100.0\n    totals[ageDecade] +\u003d 1\n    if (random.random() \u003c purchaseProbability):\n        totalPurchases +\u003d 1\n        purchases[ageDecade] +\u003d 1\n        \nprint \"totals: %s\" % totals\nprint \"purchases: %s \" % purchases\nprint \"totalPurchases: %f\" % totalPurchases\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 22, 2017 1:12:57 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "totals: {70: 16704, 40: 16632, 50: 16805, 20: 16576, 60: 16664, 30: 16619}\npurchases: {70: 11713, 40: 6670, 50: 8319, 20: 3392, 60: 9944, 30: 4974} \ntotalPurchases: 45012.000000\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511311619458_180494383",
+      "id": "20171122-004659_881872966",
+      "dateCreated": "Nov 22, 2017 12:46:59 AM",
+      "dateStarted": "Nov 22, 2017 1:12:57 AM",
+      "dateFinished": "Nov 22, 2017 1:12:58 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nLet\u0027s play with conditional probability.\n\nFirst let\u0027s compute P(E|F), where E is \"purchase\" and F is \"you\u0027re in your 30\u0027s\". The probability of someone in their 30\u0027s buying something is just the percentage of how many 30-year-olds bought something:",
+      "user": "anonymous",
+      "dateUpdated": "Nov 22, 2017 1:08:47 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eLet\u0026rsquo;s play with conditional probability.\u003c/p\u003e\n\u003cp\u003eFirst let\u0026rsquo;s compute P(E|F), where E is \u0026ldquo;purchase\u0026rdquo; and F is \u0026ldquo;you\u0026rsquo;re in your 30\u0026rsquo;s\u0026rdquo;. The probability of someone in their 30\u0026rsquo;s buying something is just the percentage of how many 30-year-olds bought something:\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511312558676_-190623028",
+      "id": "20171122-010238_1207941624",
+      "dateCreated": "Nov 22, 2017 1:02:38 AM",
+      "dateStarted": "Nov 22, 2017 1:08:47 AM",
+      "dateFinished": "Nov 22, 2017 1:08:47 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\nPEF \u003d float(purchases[30]) / float(totals[30])\nprint \"P(purchase | 30\u0027s): %f\" % PEF\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 22, 2017 1:13:01 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "P(purchase | 30\u0027s): 0.299296\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511312664947_571488446",
+      "id": "20171122-010424_2000572843",
+      "dateCreated": "Nov 22, 2017 1:04:24 AM",
+      "dateStarted": "Nov 22, 2017 1:13:01 AM",
+      "dateFinished": "Nov 22, 2017 1:13:01 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nP(F) is just the probability of being 30 in this dataset:\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 22, 2017 1:11:41 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eP(F) is just the probability of being 30 in this dataset:\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511313014356_1124279026",
+      "id": "20171122-011014_810845282",
+      "dateCreated": "Nov 22, 2017 1:10:14 AM",
+      "dateStarted": "Nov 22, 2017 1:11:41 AM",
+      "dateFinished": "Nov 22, 2017 1:11:41 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nPF \u003d float(totals[30]) / 100000.0\nprint \"P(30\u0027s): %f\" % PF\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 22, 2017 1:14:15 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "P(30\u0027s): 0.166190\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511313101781_-542899255",
+      "id": "20171122-011141_803133591",
+      "dateCreated": "Nov 22, 2017 1:11:41 AM",
+      "dateStarted": "Nov 22, 2017 1:14:15 AM",
+      "dateFinished": "Nov 22, 2017 1:14:15 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nAnd P(E) is the overall probability of buying something, regardless of your age:\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 22, 2017 1:16:24 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eAnd P(E) is the overall probability of buying something, regardless of your age:\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511313226182_-1671616255",
+      "id": "20171122-011346_911248632",
+      "dateCreated": "Nov 22, 2017 1:13:46 AM",
+      "dateStarted": "Nov 22, 2017 1:16:24 AM",
+      "dateFinished": "Nov 22, 2017 1:16:24 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nPE \u003d float(totalPurchases) / 100000.0\nprint \"P(purchase): %f\" % PE\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 22, 2017 1:17:12 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "P(purchase): 0.450120\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511313384727_-1951299702",
+      "id": "20171122-011624_1436981791",
+      "dateCreated": "Nov 22, 2017 1:16:24 AM",
+      "dateStarted": "Nov 22, 2017 1:17:12 AM",
+      "dateFinished": "Nov 22, 2017 1:17:12 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nIf E and F were independent, then we would expect P(E | F) to be about the same as P(E). But they\u0027re not; PE is 0.45, and P(E|F) is 0.3. So, that tells us that E and F are dependent (which we know they are in this example.)\n\nWhat is P(E)P(F)?\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 22, 2017 1:20:53 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eIf E and F were independent, then we would expect P(E | F) to be about the same as P(E). But they\u0026rsquo;re not; PE is 0.45, and P(E|F) is 0.3. So, that tells us that E and F are dependent (which we know they are in this example.)\u003c/p\u003e\n\u003cp\u003eWhat is P(E)P(F)?\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511313432534_1661169018",
+      "id": "20171122-011712_853511198",
+      "dateCreated": "Nov 22, 2017 1:17:12 AM",
+      "dateStarted": "Nov 22, 2017 1:20:53 AM",
+      "dateFinished": "Nov 22, 2017 1:20:53 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nprint \"P(30\u0027s)P(Purchase) %f\" % (PE * PF)\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 22, 2017 1:21:59 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "P(30\u0027s)P(Purchase) 0.074805\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511313653010_2057194417",
+      "id": "20171122-012053_1717822299",
+      "dateCreated": "Nov 22, 2017 1:20:53 AM",
+      "dateStarted": "Nov 22, 2017 1:21:59 AM",
+      "dateFinished": "Nov 22, 2017 1:21:59 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nP(E,F) is different from P(E|F). P(E,F) would be the probability of both being in your 30\u0027s and buying something, out of the total population - not just the population of people in their 30\u0027s:\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 22, 2017 1:23:14 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eP(E,F) is different from P(E|F). P(E,F) would be the probability of both being in your 30\u0026rsquo;s and buying something, out of the total population - not just the population of people in their 30\u0026rsquo;s:\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511313708976_-589600536",
+      "id": "20171122-012148_1768860603",
+      "dateCreated": "Nov 22, 2017 1:21:48 AM",
+      "dateStarted": "Nov 22, 2017 1:23:14 AM",
+      "dateFinished": "Nov 22, 2017 1:23:14 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nprint \"P(30\u0027s, Purchase): %f\" % (float(purchases[30]) / 10000.0)\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 22, 2017 1:24:18 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/text"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "P(30\u0027s, Purchase): 0.497400\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511313794072_767362862",
+      "id": "20171122-012314_27230777",
+      "dateCreated": "Nov 22, 2017 1:23:14 AM",
+      "dateStarted": "Nov 22, 2017 1:24:18 AM",
+      "dateFinished": "Nov 22, 2017 1:24:18 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nP(E,F) \u003d P(E)P(F), and they are pretty close in this example. But because E and F are actually dependent on each other, and the randomness of the data we\u0027re working with, it\u0027s not quite the same.\nWe can also check that P(E|F) \u003d P(E,F)/P(F) and sure enough, it is:\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 22, 2017 1:24:36 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eP(E,F) \u003d P(E)P(F), and they are pretty close in this example. But because E and F are actually dependent on each other, and the randomness of the data we\u0026rsquo;re working with, it\u0026rsquo;s not quite the same.\u003cbr/\u003eWe can also check that P(E|F) \u003d P(E,F)/P(F) and sure enough, it is:\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511313858425_1297439577",
+      "id": "20171122-012418_1416906028",
+      "dateCreated": "Nov 22, 2017 1:24:18 AM",
+      "dateStarted": "Nov 22, 2017 1:24:36 AM",
+      "dateFinished": "Nov 22, 2017 1:24:36 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nprint((purchases[30] / 100000.0) / PF)\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 22, 2017 1:24:56 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "0.299295986521\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1511313876097_-1750510561",
+      "id": "20171122-012436_785385086",
+      "dateCreated": "Nov 22, 2017 1:24:36 AM",
+      "dateStarted": "Nov 22, 2017 1:24:56 AM",
+      "dateFinished": "Nov 22, 2017 1:24:56 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 22, 2017 1:24:56 AM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1511313896490_2048145978",
+      "id": "20171122-012456_111545137",
+      "dateCreated": "Nov 22, 2017 1:24:56 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Playground/conditional_probability",
+  "id": "2CY2KM2EY",
+  "angularObjects": {
+    "2CXNGWCNC:shared_process": [],
+    "2CZPEDH3Q:shared_process": [],
+    "2D1F7EYSV:shared_process": [],
+    "2CYT1BPMR:shared_process": [],
+    "2D14WFES7:shared_process": [],
+    "2CXYEVNGN:shared_process": [],
+    "2D27U9GV9:shared_process": [],
+    "2D1V3ST42:shared_process": [],
+    "2CXW4AQWZ:shared_process": [],
+    "2D2231PUZ:shared_process": [],
+    "2D1UYBRX7:shared_process": [],
+    "2CXXEYWHG:shared_process": [],
+    "2CXN462DD:shared_process": [],
+    "2CXQ95EV4:shared_process": [],
+    "2D21WG8XS:shared_process": [],
+    "2D236384V:shared_process": [],
+    "2CYT5FRF8:shared_process": [],
+    "2CYWUQNUM:shared_process": [],
+    "2D1YXD5U5:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}
