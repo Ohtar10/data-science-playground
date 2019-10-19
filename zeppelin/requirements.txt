@@ -28,11 +28,11 @@ pycparser==2.17
 pydot==1.2.3
 pydotplus==2.0.2
 Pygments==2.2.0
-pyOpenSSL==16.2.0
+pyOpenSSL==17.5.0
 pyparsing==2.2.0
 python-dateutil==2.6.1
 pytz==2017.2
-requests==2.12.4
+requests>=2.20.0
 scandir==1.6
 scikit-learn==0.19.1
 scipy==1.0.0
