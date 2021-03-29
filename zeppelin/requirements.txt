@@ -27,7 +27,7 @@ pycosat==0.6.1
 pycparser==2.17
 pydot==1.2.3
 pydotplus==2.0.2
-Pygments==2.2.0
+Pygments==2.7.4
 pyOpenSSL==17.5.0
 pyparsing==2.2.0
 python-dateutil==2.6.1
