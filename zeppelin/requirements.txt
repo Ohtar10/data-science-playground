@@ -9,7 +9,7 @@ functools32==3.2.3.post2
 graphviz==0.8.1
 idna==2.2
 ipaddress==1.0.18
-ipython==5.5.0
+ipython==7.16.3
 ipython-genutils==0.2.0
 matplotlib==2.0.2
 numpy==1.13.1
